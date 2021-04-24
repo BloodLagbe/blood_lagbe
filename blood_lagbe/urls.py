@@ -13,11 +13,36 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+from django.conf import settings
+from django.conf.urls.static import static
 from django.contrib import admin
+from django.contrib.auth import views as auth_views
 from django.urls import path, include
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include("pages.urls"))
+
+    # pages url ----
+
+    path('', include("pages.urls")),
+
+    # auth urls -----
+
+    path('accounts/login/', auth_views.LoginView.as_view(), name='login'),
+    path('accounts/logout/', auth_views.LogoutView.as_view(), name='logout'),
+    # path('accounts/', include('django.contrib.auth.urls')),
 ]
+
+# just development environment
+if settings.DEBUG:
+    urlpatterns += static(
+        settings.MEDIA_URL,
+        document_root=settings.MEDIA_ROOT
+    )
+
+
+# admin site title change
+admin.sites.AdminSite.site_header = "Blood Lagbe Administration"
+admin.sites.AdminSite.site_title = "Blood Lagbe Administration"
+admin.sites.AdminSite.index_title = "Blood Lagbe Admin Panel"
