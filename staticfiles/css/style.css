@@ -12509,13 +12509,14 @@ strong,
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-  height: 96px;
+  height: 90px;
   padding: 0 15px;
   background: #ffffff;
   border-bottom: 2px #eee solid;
   -webkit-transition: left 0.25s;
   -o-transition: left 0.25s;
   transition: left 0.25s;
+  border-top: 4px solid #b50301 !important;
 }
 @media (max-width: 991.98px) {
   .nav-header {
@@ -12556,7 +12557,7 @@ strong,
 }
 .nav-header .nav-top a {
   line-height: 90px;
-  width: 280px;
+  width: 150px;
   text-align: left;
   padding-left: 10px;
   display: -webkit-box;
@@ -12567,6 +12568,7 @@ strong,
   align-items: center;
   margin-bottom: 0px;
   white-space: nowrap;
+  
 }
 .nav-header .nav-top a .logo-text {
   line-height: 90px;
