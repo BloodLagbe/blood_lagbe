@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Blood Lagbe - Home </title>
+
+    <link rel="stylesheet" href="{% static 'css/themify-icons.css'%}">
+    <link rel="stylesheet" href="{% static 'css/feather.css'%}">
+    <!-- Favicon icon -->
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'images/logo/blood_lagbe_logo.png'%}">
+    <!-- Custom Stylesheet -->
+    <link rel="stylesheet" href="{% static 'css/style.css'%}">
+    <link rel="stylesheet" href="{% static 'css/emoji.css'%}">
+
+    <link rel="stylesheet" href="{% static 'css/lightbox.css'%}">
+
+</head>
+<body class="color-theme-red mont-font">
+    {% block body %}
+
+   
+
+    {% endblock body %}
+    <script src="{% static 'js/plugin.js'%}"></script>
+    <script src="{% static 'js/lightbox.js'%}"></script>
+    <script src="{% static 'js/scripts.js'%}"></script>
+</body>
+</html>
