@@ -19,14 +19,18 @@
 
     <!-- main content -->
     <div class="main-wrapper">
-      <!-- body content -->
       <!-- nav -->
       {% block nav %}{% include 'snippets/nav.html' %} {% endblock nav %}
-      <!-- nav -->
-
-      {% block body %}{% endblock body %}
       <!-- body content -->
+      {% block body %}{% endblock body %}
+      <!-- footer -->
+      {% block footer %}
+      <!-- footer include -->
+      {% include 'snippets/footer.html' %}
+      <!-- footer include -->
+      {% endblock footer %}
     </div>
+
     <!-- script -->
     {% block scipt %}{% include 'snippets/script.html' %}{% endblock scipt %}
     <!-- extra script -->
