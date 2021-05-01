@@ -16564,3 +16564,8 @@ select.sort {
 }
 
 /*# sourceMappingURL=style.css.map */
+.card.shadow-xss.w-100.d-block.d-flex.border-0.p-2.mb-0 {
+  height: 50vh;
+  background-color: #e01b22;
+  color: white !important;
+}
