@@ -16564,3 +16564,16 @@ select.sort {
 }
 
 /*# sourceMappingURL=style.css.map */
+.card.shadow-xss.w-100.d-block.border-0.p-2.mb-0 {
+  height: 50vh;
+  background-color: black;
+}
+#footer{
+  height: 50vh;
+  background-color: black;
+  background-repeat: no-repeat;
+  position: relative;
+  background-size: 20%;
+  background-position: left;
+  text-align: left;
+}
