@@ -22,11 +22,17 @@
           </h5>
           <div class="form-group mt-4 p-1 p-2 bg-white rounded-3">
             <div class="row">
-              <div class="col-lg-5">
+              <div class="d-flex justify-contain-space-around m-2 ">
+
                 <a
-                  href="#"
-                  class="w-100 d-block btn bg-current text-white font-xssss fw-600 ls-3 style1-input p-0 border-0 text-uppercase"
-                  >আমাদের সাথে যুক্ত হন</a
+                  href="/admin/"
+                  class="c-border-danger w-100 d-block btn bg-white text-danger font-xssss fw-600 ls-3 style1-input m-2 p-0 border-0 text-uppercase"
+                  >রক্ত খুঁজুন <i class="feather-search font-lg mt-1"></i></a
+                >
+                <a
+                  href="/admin/"
+                  class="border-danger w-100 d-block btn bg-current text-white font-xssss fw-600 ls-3 style1-input m-2 p-0 border-0 text-uppercase"
+                  >আমাদের সাথে যুক্ত হন <i class="feather-arrow-right font-lg mt-1"></i></a
                 >
               </div>
             </div>
@@ -37,45 +43,50 @@
   </div>
   <!-- main content -->
 
-  <!-- ======= Why Us Section ======= -->
-  <section id="why-us" class="why-us">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-4" data-aos="fade-up">
-          <div class="box">
-            <span>01</span>
-            <h4>Find Blood Donar</h4>
-            <p>Search Blood Donnar from your nearest location!</p>
-          </div>
-        </div>
 
-        <div
-          class="col-lg-4 mt-4 mt-lg-0"
-          data-aos="fade-up"
-          data-aos-delay="150"
-        >
-          <div class="box">
-            <span>02</span>
-            <h4>Contract Blood Donar</h4>
-            <p>Register and contract the blood donar directly from the web!</p>
-          </div>
-        </div>
+      <!-- ======= Why Us Section ======= -->
+      <section id="why-us" class="why-us">
+        <div class="container">
+          <div class="row">
+            <div
+              class="col-lg-4 mt-4 mt-lg-0"
+              data-aos="fade-up"
+              data-aos-delay="300"
+            >
+              <div class="box">
+                <span>Who can donate?</span>
+                <p>
+                  You need to be 18-65 years old, weigh 45kg or more and be fit
+                  and healthy.
+                </p>
+              </div>
+            </div>
 
-        <div
-          class="col-lg-4 mt-4 mt-lg-0"
-          data-aos="fade-up"
-          data-aos-delay="300"
-        >
-          <div class="box">
-            <span>03</span>
-            <h4>Become A Blood Donar</h4>
-            <p>Register and donate blood now!</p>
+            <div
+              class="col-lg-4 mt-4 mt-lg-0"
+              data-aos="fade-up"
+              data-aos-delay="150"
+            >
+              <div class="box">
+                <span>How long does it take?</span>
+                <p>15 minutes to donate.</p>
+              </div>
+            </div>
+
+            <div
+              class="col-lg-4 mt-4 mt-lg-0"
+              data-aos="fade-up"
+              data-aos-delay="150"
+            >
+              <div class="box">
+                <span>How often can I donate?</span>
+                <p>Every 12 weeks</p>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
-    </div>
-  </section>
-  <!-- End Why Us Section -->
+      </section>
+      <!-- End Why Us Section -->
 
   <!-- Blood groups -->
   <div class="container">
@@ -239,56 +250,13 @@
       </div>
 
 
-      <!-- ======= Why Us Section ======= -->
-      <section id="why-us" class="why-us">
-        <div class="container">
-          <div class="row">
-            <div
-              class="col-lg-4 mt-4 mt-lg-0"
-              data-aos="fade-up"
-              data-aos-delay="300"
-            >
-              <div class="box">
-                <span>Who can donate?</span>
-                <p>
-                  You need to be 18-65 years old, weigh 45kg or more and be fit
-                  and healthy.
-                </p>
-              </div>
-            </div>
-
-            <div
-              class="col-lg-4 mt-4 mt-lg-0"
-              data-aos="fade-up"
-              data-aos-delay="150"
-            >
-              <div class="box">
-                <span>How long does it take?</span>
-                <p>15 minutes to donate.</p>
-              </div>
-            </div>
-
-            <div
-              class="col-lg-4 mt-4 mt-lg-0"
-              data-aos="fade-up"
-              data-aos-delay="150"
-            >
-              <div class="box">
-                <span>How often can I donate?</span>
-                <p>Every 12 weeks</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-      <!-- End Why Us Section -->
     </div>
   </div>
   </div>
   
         <div class="container">
           <div class="row">
-            {% include 'pages/snippets/map.html' %}
+            {% comment %} {% include 'pages/snippets/map.html' %} {% endcomment %}
           </div>
         </div>
   </div>

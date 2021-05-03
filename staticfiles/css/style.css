@@ -1083,7 +1083,7 @@
 }
 
 .shadow-xs {
-  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.03) !important;
+  box-shadow: 1px 1px 15px -3px black !important;
 }
 
 .shadow-xss {
@@ -7970,7 +7970,9 @@ textarea.form-control-lg {
 .border-warning {
   border-color: #FE9431 !important;
 }
-
+.c-border-danger {
+  border: 3px solid red !important;
+}
 .border-danger {
   border-color: #E50202 !important;
 }
@@ -12540,7 +12542,7 @@ strong,
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-  height: 90px;
+  height: 100px;
   padding: 0 15px;
   background: #ffffff;
   border-bottom: 2px #eee solid;
@@ -14727,7 +14729,7 @@ body:not(.theme-full) .main-content .middle-sidebar-bottom.header-padding {
   height: 55px;
   line-height: 55px;
   display: block;
-  font-size: 12px;
+  font-size: 17px;
 }
 .form-group .style1-select {
   line-height: 55px;

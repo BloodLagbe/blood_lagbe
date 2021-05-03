@@ -414,7 +414,7 @@ $(document).ready(function() {
             $('#navbar').css({"height":"75px","position":"fixed","top":"0", "right":"0","left":"0"}).addClass('shadow-xs');  
             $('#to-top').css({"display":"block"});
         } else {
-            $('#navbar').css({"position":"static","top":"auto", "right":"auto","left":"auto"}).removeClass('shadow-xs');
+            $('#navbar').css({"height":"100px","position":"static","top":"auto", "right":"auto","left":"auto"}).removeClass('shadow-xs');
             $('#to-top').css({"display":"none"});
         }
     });
