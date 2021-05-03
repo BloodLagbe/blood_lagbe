@@ -1,0 +1,102 @@
+
+                    <div class="row">
+                        <div class="col-xl-12">
+                            <div class="card w-100 border-0 shadow-none rounded-xxl border-0 mb-3 overflow-hidden ">
+                                <div id="map" class="rounded-3 h400"></div>
+                                <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyCOdKtT5fapH3_OfhV3HFeZjqFs4OfNIew&amp;callback=mapinitialize" type="text/javascript"></script>
+                                <script type="text/javascript">
+
+                                    
+
+                                
+                                var icons = { parking: { icon: 'images/map-marker.png' } };
+
+
+                                // REPLACE WITH DATA FROM API
+                                //TITLE | POSITION - LAT , LNG | ICON | TITLE | CONTENT
+                                var airports = [
+                                    { 
+                                        position: { 
+                                            lat: 53.3588026, 
+                                            lng: -2.274919 }, 
+                                        icon: 'parking',    
+                                        content: '<div id="content"><div id="siteNotice"></div><h5 id="firstHeading" class="firstHeading"><b>Right here Right Now - Improv Comedy</b> </h5></div>'
+                                    },
+                                    { 
+                                        position: { 
+                                            lat: 53.8679434, 
+                                            lng: -1.6637193 }, 
+                                        icon: 'parking',    
+                                        content: '<div id="content"><div id="siteNotice"></div><h5 id="firstHeading" class="firstHeading"><b>Open Mic-Stand up Comedy and Poetry</b></h5></div>'
+                                    },
+                                    { 
+                                        position: { 
+                                            lat: 54.661781, 
+                                            lng: -6.2184331 }, 
+                                        icon: 'parking',    
+                                        content: '<div id="content"><div id="siteNotice"></div><h5 id="firstHeading" class="firstHeading"><b>Mohd Suhels Guide to the Galaxy</b></h5></div>'
+                                    },
+                                    { 
+                                        position: { 
+                                            lat: 55.950785, 
+                                            lng: -3.3636419 }, 
+                                        icon: 'parking',    
+                                        content: '<div id="content"><div id="siteNotice"></div><h5 id="firstHeading" class="firstHeading"><b>Charlotte De Witte India Tour- Goa</b></h5></div>'
+                                    },
+                                    { 
+                                        position: { 
+                                            lat: 51.3985498, 
+                                            lng: -3.3416461 }, 
+                                        icon: 'parking',    
+                                        content: '<div id="content"><div id="siteNotice"></div><h5 id="firstHeading" class="firstHeading"><b>A Stand-up Comedy Show by Rahul Dua </b></h5></div>'
+                                    },
+                                    { 
+                                        position: { 
+                                            lat: 51.4700223, 
+                                            lng: -0.4542955 }, 
+                                        icon: 'parking',    
+                                        content: '<div id="content"><div id="siteNotice"></div><h5 id="firstHeading" class="firstHeading"><b>Sunburn Holi Weekend 2021 ft Vini Vici- Goa </b></h5></div>'}
+                                ];
+
+                                function initMap() {
+                                    
+                                    var uk = { 
+                                        lat: 53.990221, 
+                                        lng: -3.911132 
+                                    };
+                                    
+                                    var map = new google.maps.Map( document.getElementById('map'), {
+                                      zoom: 6,
+                                      center: uk, 
+                                      disableDefaultUI: true,
+                                      styles: [{"featureType":"all","elementType":"all","stylers":[{"visibility":"on"}]},{"featureType":"administrative","elementType":"labels.text.fill","stylers":[{"color":"#444444"}]},{"featureType":"administrative.province","elementType":"all","stylers":[{"visibility":"off"}]},{"featureType":"administrative.locality","elementType":"all","stylers":[{"visibility":"off"}]},{"featureType":"administrative.neighborhood","elementType":"all","stylers":[{"visibility":"off"}]},{"featureType":"administrative.land_parcel","elementType":"all","stylers":[{"visibility":"off"}]},{"featureType":"administrative.land_parcel","elementType":"labels.text","stylers":[{"visibility":"off"}]},{"featureType":"landscape","elementType":"all","stylers":[{"color":"#f2f2f2"}]},{"featureType":"landscape.man_made","elementType":"all","stylers":[{"visibility":"simplified"}]},{"featureType":"poi","elementType":"all","stylers":[{"visibility":"off"},{"color":"#cee9de"},{"saturation":"2"},{"weight":"0.80"}]},{"featureType":"poi.attraction","elementType":"geometry.fill","stylers":[{"visibility":"off"}]},{"featureType":"poi.park","elementType":"all","stylers":[{"visibility":"on"}]},{"featureType":"road","elementType":"all","stylers":[{"saturation":-100},{"lightness":45}]},{"featureType":"road.highway","elementType":"all","stylers":[{"visibility":"simplified"}]},{"featureType":"road.highway","elementType":"geometry.fill","stylers":[{"visibility":"on"},{"color":"#f5d6d6"}]},{"featureType":"road.highway","elementType":"labels.text","stylers":[{"visibility":"off"}]},{"featureType":"road.highway","elementType":"labels.icon","stylers":[{"hue":"#ff0000"},{"visibility":"on"}]},{"featureType":"road.highway.controlled_access","elementType":"labels.text","stylers":[{"visibility":"simplified"}]},{"featureType":"road.highway.controlled_access","elementType":"labels.icon","stylers":[{"visibility":"on"},{"hue":"#0064ff"},{"gamma":"1.44"},{"lightness":"-3"},{"weight":"1.69"}]},{"featureType":"road.arterial","elementType":"all","stylers":[{"visibility":"on"}]},{"featureType":"road.arterial","elementType":"labels.text","stylers":[{"visibility":"off"}]},{"featureType":"road.arterial","elementType":"labels.icon","stylers":[{"visibility":"off"}]},{"featureType":"road.local","elementType":"all","stylers":[{"visibility":"on"}]},{"featureType":"road.local","elementType":"labels.text","stylers":[{"visibility":"simplified"},{"weight":"0.31"},{"gamma":"1.43"},{"lightness":"-5"},{"saturation":"-22"}]},{"featureType":"transit","elementType":"all","stylers":[{"visibility":"off"}]},{"featureType":"transit.line","elementType":"all","stylers":[{"visibility":"on"},{"hue":"#ff0000"}]},{"featureType":"transit.station.airport","elementType":"all","stylers":[{"visibility":"simplified"},{"hue":"#ff0045"}]},{"featureType":"transit.station.bus","elementType":"all","stylers":[{"visibility":"on"},{"hue":"#00d1ff"}]},{"featureType":"transit.station.bus","elementType":"labels.text","stylers":[{"visibility":"simplified"}]},{"featureType":"transit.station.rail","elementType":"all","stylers":[{"visibility":"simplified"},{"hue":"#00cbff"}]},{"featureType":"transit.station.rail","elementType":"labels.text","stylers":[{"visibility":"simplified"}]},{"featureType":"water","elementType":"all","stylers":[{"color":"#46bcec"},{"visibility":"on"}]},{"featureType":"water","elementType":"geometry.fill","stylers":[{"weight":"1.61"},{"color":"#cde2e5"},{"visibility":"on"}]}]
+                                    });
+                                          
+                                    var InfoWindows = new google.maps.InfoWindow({});
+                                    
+                                    airports.forEach(function(airport) {    
+                                        var marker = new google.maps.Marker({
+                                          position: { lat: airport.position.lat, lng: airport.position.lng },
+                                          map: map,
+                                          icon: icons[airport.icon].icon,
+                                          title: airport.title
+                                        });
+                                        marker.addListener('mouseover', function() {
+                                          InfoWindows.open(map, this);
+                                          InfoWindows.setContent(airport.content);
+                                        });
+                                    });
+                                }
+
+                                initMap();
+
+
+
+
+                                </script>
+                            </div>
+
+                        </div>               
+
+                    </div>
+                </
