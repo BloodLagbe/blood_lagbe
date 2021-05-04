@@ -1,13 +1,5 @@
 @charset "UTF-8";
 /*-----------------------------------------------------------
-    Theme Name: Sociala
-    Theme URI: http://uitheme.net/sociala/
-    Author: Uttam D
-    Author URI: http://uitheme.net/
-    Description: Online Course and LMS HTML Template
-    Version: 1.0.0
--------------------------------------------------------------*/
-/*-----------------------------------------------------------
     Table of Content: 
 
 
@@ -22,12 +14,6 @@
 
 
 */
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;900&amp;display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&amp;display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&amp;family=Roboto:wght@300;400;500;700;900&amp;display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Fredoka+One&amp;display=swap");
-@import "../vendor/owl-carousel/css/owl.carousel.min.css";
-@import "../vendor/owl-carousel/css/owl.theme.default.css";
 .preloader {
   position: fixed;
   left: 0px;
@@ -1097,7 +1083,7 @@
 }
 
 .shadow-xs {
-  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.03) !important;
+  box-shadow: 1px 1px 15px -3px black !important;
 }
 
 .shadow-xss {
@@ -7984,7 +7970,9 @@ textarea.form-control-lg {
 .border-warning {
   border-color: #FE9431 !important;
 }
-
+.c-border-danger {
+  border: 3px solid red !important;
+}
 .border-danger {
   border-color: #E50202 !important;
 }
@@ -12496,12 +12484,57 @@ strong,
 .right-chat.active-sidebar {
   right: 0px;
 }
-
-.nav-header {
+#topbar{
+  background-color: #000 !important;
+}
+.vh-90{
+  height: 90vh;
+}
+.vh-80 {
+  height: 80vh;
+}
+#to-top {
   position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
+  bottom: 10px;
+  right: 50px;
+  z-index: 100;
+  display: none;
+}
+.why-us .box {
+  padding: 50px 30px;
+  box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1);
+  transition: all ease-in-out 0.3s;
+  height: 300px;
+}
+.why-us .box span {
+  display: block;
+  font-size: 28px;
+  font-weight: 700;
+  color: #ed5b5b;
+}
+.why-us .box h4 {
+  font-size: 24px;
+  font-weight: 600;
+  padding: 0;
+  margin: 20px 0;
+  color: #191919;
+}
+.why-us .box:hover {
+  background: #cc1616;
+  padding: 30px 30px 70px 30px;
+  box-shadow: 10px 15px 30px rgba(0, 0, 0, 0.18);
+}
+.why-us .box:hover span,
+.why-us .box:hover h4,
+.why-us .box:hover p {
+  color: #fff;
+}
+[data-aos^="fade"][data-aos^="fade"].aos-animate {
+  opacity: 1;
+  transform: translateZ(0);
+}
+.nav-header {
+
   z-index: 10;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -12509,14 +12542,21 @@ strong,
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-  height: 90px;
+  height: 100px;
   padding: 0 15px;
   background: #ffffff;
   border-bottom: 2px #eee solid;
   -webkit-transition: left 0.25s;
   -o-transition: left 0.25s;
   transition: left 0.25s;
-  border-top: 4px solid #b50301 !important;
+}
+#footer .footer-top .footer-info {
+  margin-bottom: 15px;
+  background: #191919;
+  color: #fff;
+  border-top: 4px solid #cc1616;
+  text-align: center;
+  padding: 30px 20px;
 }
 @media (max-width: 991.98px) {
   .nav-header {
@@ -14689,7 +14729,7 @@ body:not(.theme-full) .main-content .middle-sidebar-bottom.header-padding {
   height: 55px;
   line-height: 55px;
   display: block;
-  font-size: 12px;
+  font-size: 17px;
 }
 .form-group .style1-select {
   line-height: 55px;
@@ -16564,3 +16604,22 @@ select.sort {
 }
 
 /*# sourceMappingURL=style.css.map */
+.card.shadow-xss.w-100.d-block.border-0.p-2.mb-0 {
+  height: 50vh;
+  background-color: black;
+}
+#footer{
+  height: 70vh;
+  background-color: black;
+  background-repeat: no-repeat;
+  position: relative;
+  background-size: 25%;
+  background-position: left;
+  text-align: left;
+  padding: 60px;
+}
+#footer .copyright {
+  border-top: 1px solid #262626;
+  text-align: center;
+  padding-top: 30px;
+}

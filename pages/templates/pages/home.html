@@ -1,0 +1,263 @@
+{% extends 'base/base.html' %}
+<!-- static -->
+{% load static %}
+<!-- Body content -->
+{% block body %}
+
+<!-- main content -->
+<div class="main-content pt-0 bg-white ps-0 pe-0">
+  <div class="container">
+    <div class="row">
+      <div class="col-xl-6 d-none d-xl-block p-0 vh-80 bg-image-contain
+      bg-image-center bg-no-repeat" style="background-image: url({% static 'images/19198095.jpg' %}")" >
+    </div>
+    <div
+      class="col-xl-6 vh-80 align-items-center d-flex bg-white rounded-3 overflow-hidden"
+    >
+      <div class="card shadow-none border-0 ps-lg--5 me-auto coming-soon-card">
+        <div class="card-body rounded-0 text-left pt-md-5 mt-md-5 ps-0 pe-0">
+          <h5 class="fw-700 text-grey-900 display3-size display4-md-size lh-2">
+            ব্লাড লাগবে হল রক্তদাতা ও গ্রহীতার জন্য একটি দ্রুত, সহজ এবং নিরাপদ
+            প্ল্যাটফর্ম।
+          </h5>
+          <div class="form-group mt-4 p-1 p-2 bg-white rounded-3">
+            <div class="row">
+              <div class="d-flex justify-contain-space-around m-2 ">
+
+                <a
+                  href="/admin/"
+                  class="c-border-danger w-100 d-block btn bg-white text-danger font-xssss fw-600 ls-3 style1-input m-2 p-0 border-0 text-uppercase"
+                  >রক্ত খুঁজুন <i class="feather-search font-lg mt-1"></i></a
+                >
+                <a
+                  href="/admin/"
+                  class="border-danger w-100 d-block btn bg-current text-white font-xssss fw-600 ls-3 style1-input m-2 p-0 border-0 text-uppercase"
+                  >আমাদের সাথে যুক্ত হন <i class="feather-arrow-right font-lg mt-1"></i></a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- main content -->
+
+
+      <!-- ======= Why Us Section ======= -->
+      <section id="why-us" class="why-us">
+        <div class="container">
+          <div class="row">
+            <div
+              class="col-lg-4 mt-4 mt-lg-0"
+              data-aos="fade-up"
+              data-aos-delay="300"
+            >
+              <div class="box">
+                <span>Who can donate?</span>
+                <p>
+                  You need to be 18-65 years old, weigh 45kg or more and be fit
+                  and healthy.
+                </p>
+              </div>
+            </div>
+
+            <div
+              class="col-lg-4 mt-4 mt-lg-0"
+              data-aos="fade-up"
+              data-aos-delay="150"
+            >
+              <div class="box">
+                <span>How long does it take?</span>
+                <p>15 minutes to donate.</p>
+              </div>
+            </div>
+
+            <div
+              class="col-lg-4 mt-4 mt-lg-0"
+              data-aos="fade-up"
+              data-aos-delay="150"
+            >
+              <div class="box">
+                <span>How often can I donate?</span>
+                <p>Every 12 weeks</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- End Why Us Section -->
+
+  <!-- Blood groups -->
+  <div class="container">
+    <div class="row">
+      <h2 class="fw-700 mb-0 mt-0 font-md text-grey-900">Find Donors</h2>
+      <div class="col-6 row p-3">
+        <div class="col-lg-3">
+          <img src="{% static "images/blood_group/A+ve.png" %}" alt=""
+          width="100%">
+        </div>
+        <div class="col-lg-3">
+          <img src="{% static "images/blood_group/A-ve.png" %}" alt=""
+          width="100%">
+        </div>
+        <div class="col-lg-3">
+          <img src="{% static "images/blood_group/B+ve.png" %}" alt=""
+          width="100%">
+        </div>
+        <div class="col-lg-3">
+          <img src="{% static "images/blood_group/B-ve.png" %}" alt=""
+          width="100%">
+        </div>
+        <div class="col-lg-3">
+          <img src="{% static "images/blood_group/AB+ve.png" %}" alt=""
+          width="100%">
+        </div>
+        <div class="col-lg-3">
+          <img src="{% static "images/blood_group/AB-ve.png" %}" alt=""
+          width="100%">
+        </div>
+        <div class="col-lg-3">
+          <img src="{% static "images/blood_group/O+ve.png" %}" alt=""
+          width="100%">
+        </div>
+        <div class="col-lg-3">
+          <img src="{% static "images/blood_group/O-ve.png" %}" alt=""
+          width="100%">
+        </div>
+      </div>
+      <div class="col-6">
+        <table class="table table-responsive table-bordered">
+          <tbody>
+            <tr>
+              <th colspan="3" style="color: white; background-color: red">
+                Compatible Blood Type Donors
+              </th>
+            </tr>
+            <tr>
+              <td><b>Blood Type</b></td>
+              <td><b>Donate Blood To</b></td>
+              <td><b>Receive Blood From</b></td>
+            </tr>
+            <tr>
+              <td>
+                <span style="color: #961e1b"><b>A+</b></span>
+              </td>
+              <td>A+ AB+</td>
+              <td>A+ A- O+ O-</td>
+            </tr>
+            <tr>
+              <td>
+                <span style="color: #961e1b"><b>O+</b></span>
+              </td>
+              <td>O+ A+ B+ AB+</td>
+              <td>O+ O-</td>
+            </tr>
+            <tr>
+              <td>
+                <span style="color: #961e1b"><b>B+</b></span>
+              </td>
+              <td>B+ AB+</td>
+              <td>B+ B- O+ O-</td>
+            </tr>
+            <tr>
+              <td>
+                <span style="color: #961e1b"><b>AB+</b></span>
+              </td>
+              <td>AB+</td>
+              <td>Everyone</td>
+            </tr>
+            <tr>
+              <td>
+                <span style="color: #961e1b"><b>A-</b></span>
+              </td>
+              <td>A+ A- AB+ AB-</td>
+              <td>A- O-</td>
+            </tr>
+            <tr>
+              <td>
+                <span style="color: #961e1b"><b>O-</b></span>
+              </td>
+              <td>Everyone</td>
+              <td>O-</td>
+            </tr>
+            <tr>
+              <td>
+                <span style="color: #961e1b"><b>B-</b></span>
+              </td>
+              <td>B+ B- AB+ AB-</td>
+              <td>B- O-</td>
+            </tr>
+            <tr>
+              <td>
+                <span style="color: #961e1b"><b>AB-</b></span>
+              </td>
+              <td>AB+ AB-</td>
+              <td>AB- A- B- O-</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  {% include 'pages/top_donors.html' %}
+
+  <div class="row justify-content-center mb-3">
+    <div class="col-xl-12">
+      <div
+        class="card w-100 border-0 p-0 rounded-3 overflow-hidden bg-image-contain bg-image-center"
+        style="background-image: url(images/help-bg.png)"
+      >
+        <div
+          class="card-body p-md-5 p-4 text-center"
+          style="background-color: rgba(0, 85, 255, 0.8)"
+        >
+          <h2 class="fw-700 display2-size text-white display2-md-size lh-2">
+            Welcome to the Sociala Commuinity!
+          </h2>
+          <p class="font-xsss ps-lg-5 pe-lg-5 lh-28 text-grey-200">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi nulla
+            dolor, ornare at commodo non, feugiat non nisi. Phasellus faucibus
+            mollis pharetra. Proin blandit ac massa sed rhoncus
+          </p>
+          <div
+            class="form-group w-lg-75 mt-4 border-light border p-1 bg-white rounded-3 ms-auto me-auto"
+          >
+            <div class="row">
+              <div class="col-md-8">
+                <div class="form-group icon-input mb-0">
+                  <i class="ti-search font-xs text-grey-400"></i>
+                  <input
+                    type="text"
+                    class="style1-input border-0 ps-5 font-xsss mb-0 text-grey-500 fw-500 bg-transparent"
+                    placeholder="Search anythings.."
+                  />
+                </div>
+              </div>
+              <div class="col-md-4">
+                <a
+                  href="#"
+                  class="w-100 d-block btn bg-current text-white font-xssss fw-600 ls-3 style1-input p-0 border-0 text-uppercase"
+                  >Search</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      </div>
+      </div>
+
+
+    </div>
+  </div>
+  </div>
+  
+        <div class="container">
+          <div class="row">
+            {% comment %} {% include 'pages/snippets/map.html' %} {% endcomment %}
+          </div>
+        </div>
+  </div>
+  {% endblock body %}

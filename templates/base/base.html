@@ -1,31 +1,46 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
-{% load static %}
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Blood Lagbe - Home </title>
-
-    <link rel="stylesheet" href="{% static 'css/themify-icons.css'%}">
-    <link rel="stylesheet" href="{% static 'css/feather.css'%}">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>{% block title %}Home{% endblock title %} | Blood Lagbe</title>
     <!-- Favicon icon -->
-    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'images/logo/blood_lagbe_logo.png'%}">
-    <!-- Custom Stylesheet -->
-    <link rel="stylesheet" href="{% static 'css/style.css'%}">
-    <link rel="stylesheet" href="{% static 'css/emoji.css'%}">
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="{% static 'images/logo/blood_lagbe_logo.png'%}"
+    />
+    <!-- style -->
+    {% block style %}{% include 'snippets/style.html' %}{% endblock style %}
+    <!--extra style -->
+    {% block extra_style %}{% endblock extra_style %}
+  </head>
+  <body class="color-theme-red mont-font">
+    <!-- preloader -->
+    {% block loader %}
+    <div class="preloader"></div>
+    {% endblock loader %}
 
-    <link rel="stylesheet" href="{% static 'css/lightbox.css'%}">
+    <!-- main content -->
+    <div class="main-wrapper">
+      <!-- nav -->
+      {% block nav %}{% include 'snippets/nav.html' %} {% endblock nav %}
+      <!-- body content -->
+      {% block body %}{% endblock body %}
+      <!-- footer -->
+      {% block footer %}
+      <!-- footer include -->
+      {% include 'snippets/footer.html' %}
+      <!-- footer include -->
+      {% endblock footer %}
+    </div>
 
-</head>
-<body class="color-theme-red mont-font">
-    {% block body %}
-
-   
-
-    {% endblock body %}
-    <script src="{% static 'js/plugin.js'%}"></script>
-    <script src="{% static 'js/lightbox.js'%}"></script>
-    <script src="{% static 'js/scripts.js'%}"></script>
-</body>
+    <!-- script -->
+    {% block scipt %}{% include 'snippets/script.html' %}{% endblock scipt %}
+    <!-- extra script -->
+    {% block extra_scripts %}{% endblock extra_scripts %}
+  </body>
 </html>
