@@ -33,3 +33,4 @@ class UserAdmin(models.User):
 
 
 admin.site.register(models.User)
+admin.site.register(models.Profile)

@@ -1,0 +1,70 @@
+
+{% block content %}
+  <div class="container">
+    <div class="block-end">
+        <div class="head-notice">
+            <div class="registration_form">
+
+                <div class="form">
+
+                    <h2 class="form_tittle" style="margin-bottom:15px;">REGISTER</h2>
+
+
+                    <form method="post" id="register-form">
+                        {% csrf_token %}
+                        <input type="hidden" name="is_approved_buyer" value="true">
+
+                        <div class="form-group">
+                            {{ registration_form.name.errors }}
+                            <label for="{{ registration_form.first_name.id_for_label }}">First Name</label>
+                            {{ registration_form.first_name }}
+                        </div>
+
+                        <div class="form-group">
+                            {{ registration_form.name.errors }}
+                            <label for="{{ registration_form.last_name.id_for_label }}">Last Name</label>
+                            {{ registration_form.last_name }}
+                        </div>
+
+                        <div class="form-group">
+                            {{ registration_form.phone.errors }}
+                            <label for="{{ registration_form.phone.id_for_label }}">Phone Number*</label>
+                            {{ registration_form.phone }}
+                            <small class="text-muted">Required. Add a valid phone number</small>
+                        </div>
+
+                        <div class="form-group">
+                            {{ registration_form.email.errors }}
+                            <label for="{{ registration_form.email.id_for_label }}">Email</label>
+                            {{ registration_form.email }}
+                        </div>
+
+                        <div class="form-group">
+                            {{ registration_form.password1.errors }}
+                            <label for="{{ registration_form.password1.id_for_label }}">Password</label>
+
+                            {{ registration_form.password1 }}
+
+                            <small class="text-muted">Your password can't be too similar to your other personal information.</small>
+                            <small class="text-muted">Your password must contain at least 8 characters.</small>
+                            <small class="text-muted">Your password can't be a commonly used password.</small>
+                            <small class="text-muted">Your password can't be entirely numeric.</small>
+                        </div>
+
+                        <div class="form-group">
+                            {{ registration_form.password2.errors }}
+                            <label for="{{ registration_form.password2.id_for_label }}">Confirm Password</label>
+                            {{ registration_form.password2 }}
+                            <small class="text-muted">Enter the same password as before, for verification.</small>
+                        </div>
+
+                        <button class="submit_button" type="submit" data-toggle="modal" data-target="#exampleModalCenter">Register'</button>
+                    </form>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

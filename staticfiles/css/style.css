@@ -8655,10 +8655,6 @@ textarea.form-control-lg {
   padding-left: 1.5rem !important;
 }
 
-.ps-5 {
-  padding-left: 3rem !important;
-}
-
 .font-monospace {
   font-family: var(--bs-font-monospace) !important;
 }
