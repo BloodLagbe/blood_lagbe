@@ -18,7 +18,7 @@ class Migration(migrations.Migration):
             name='Author',
             fields=[
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('image', models.ImageField(default='no_pic.jpg', upload_to='post')),
+                ('image', models.ImageField(default='no_pic.jpg', upload_to='blog')),
                 ('author', models.OneToOneField(on_delete=django.db.models.deletion.CASCADE, to=settings.AUTH_USER_MODEL)),
             ],
         ),

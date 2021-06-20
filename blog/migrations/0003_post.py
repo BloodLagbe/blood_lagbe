@@ -7,7 +7,7 @@ import django.db.models.deletion
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('blogapp', '0002_category'),
+        ('blog', '0002_category'),
     ]
 
     operations = [
@@ -17,13 +17,13 @@ class Migration(migrations.Migration):
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('title', models.CharField(max_length=120)),
                 ('overview', models.TextField()),
-                ('thumbnail', models.ImageField(default='no_image.jpeg', upload_to='post')),
+                ('thumbnail', models.ImageField(default='no_image.jpeg', upload_to='blog')),
                 ('view_count', models.IntegerField(default=0)),
                 ('comment_count', models.IntegerField(default=0)),
                 ('timestamp', models.DateTimeField(auto_now_add=True)),
                 ('featured', models.BooleanField(default=True)),
-                ('author', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='blogapp.author')),
-                ('categories', models.ManyToManyField(to='blogapp.Category')),
+                ('author', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='blog.author')),
+                ('categories', models.ManyToManyField(to='blog.Category')),
             ],
         ),
     ]

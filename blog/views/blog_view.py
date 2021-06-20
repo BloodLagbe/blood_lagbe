@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from blogapp.models.post import Post
+from blog.models.post import Post
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from .category_count_view import get_category_count
 
@@ -24,4 +24,4 @@ def blogView(request):
         'page_request_var': page_request_var,
         'latest_post': latest_post,
     }
-    return render(request, 'blogapp/blog.html', context)
+    return render(request, 'blog/blog.html', context)
