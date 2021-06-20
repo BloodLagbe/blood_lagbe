@@ -1,4 +1,4 @@
-from blogapp.models.post import Post
+from blog.models.post import Post
 from django.db.models import Count
 
 
