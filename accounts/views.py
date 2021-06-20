@@ -6,11 +6,6 @@ from django.contrib.auth import login, authenticate, logout
 
 # Create your views here.
 def login_view(request):
-    ("LOGIN")
-    ("Login")
-    ("Phone Number*")
-    ("Password*")
-
     context = {}
     user = request.user
     if user.is_authenticated:
@@ -33,7 +28,7 @@ def login_view(request):
         form = LoginForm()
 
     context = {"login_form": form}
-    return render(request, 'login.html', context)
+    return render(request, 'accounts/login.html', context)
 
 
 def logout_view(request):
@@ -50,13 +45,6 @@ def signup_view(request):
     ("Address")
     ("Register")
 
-    ("If you want to join as a seller, please select a Producer Organization.")
-    ("Enter the same password as before, for verification.")
-    ("Required. Add a valid phone number")
-    ("Your password can't be too similar to your other personal information.")
-    ("Your password must contain at least 8 characters.")
-    ("Your password can't be a commonly used password.")
-    ("Your password can't be entirely numeric.")
 
     context = {}
     if not request.user.is_authenticated:
@@ -79,7 +67,7 @@ def signup_view(request):
             context = {
                 "registration_form": form
             }
-        return render(request, 'signup.html', context)
+        return render(request, 'accounts/signup.html', context)
     else:
         # return render(request, 'registration.html', context)
         return render(request, 'pages/home.html')

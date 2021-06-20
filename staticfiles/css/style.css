@@ -8441,6 +8441,7 @@ textarea.form-control-lg {
 
 .mb-4 {
   margin-bottom: 1.5rem !important;
+  text-align: center;
 }
 
 .mb-5 {
@@ -8653,6 +8654,10 @@ textarea.form-control-lg {
 
 .ps-4 {
   padding-left: 1.5rem !important;
+}
+
+.ps-5 {
+    /* padding-left: 3rem !important; */
 }
 
 .font-monospace {

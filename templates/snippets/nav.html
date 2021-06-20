@@ -7,7 +7,8 @@
       <div class="contact-info d-flex align-items-center">
           {% csrf_token %}
           {% if user.is_authenticated %}
-            <a href="mailto:contact@example.com" class="text-white"><i class="feather-mail text-danger p-2"></i>Welcome {{user.first_name}} {{user.last_name}} </a>
+<!--            <a href="mailto:contact@example.com" class="text-white"><i class="feather-mail text-danger p-2"></i>Welcome {{user.first_name}} {{user.last_name}} </a>-->
+            <a href="mailto:contact@example.com" class="text-white"></i>Welcome {{user.first_name}} {{user.last_name}} </a>
             <a href="mailto:contact@example.com" class="text-white"> <i class="feather-phone text-danger p-2"></i>{{user.phone}}</a>
          {% endif %}
       </div>
@@ -46,36 +47,7 @@
             <a href="#" class="p-2 text-center ms-3 menu-icon chat-active-btn"><i class="feather-message-square font-xl text-current"></i></a>
                         <a href="#" class="p-2 text-center ms-auto menu-icon" id="dropdownMenu3" data-bs-toggle="dropdown" aria-expanded="false"><i class="feather-log-in font-xl text-current"></i></a>
             <div class="dropdown-menu dropdown-menu-end p-4 rounded-3 border-0 shadow-lg" aria-labelledby="dropdownMenu3">
-                {% csrf_token %}
-                {% if user.is_authenticated %}
-                  <a href="{% url 'logout' %}">logout</a>
-                {% else %}
-                <h4 class="fw-700 font-xss mb-4">LOGIN</h4>
-                <div class="card bg-transparent-card w-100 border-0 ps-5 mb-3">
-                    <label class="block">
-                        <span class="text-gray-700">
-                            Phone Number
-                        </span>
-                        <input name="phone" class="block w-full mt-1 form-input" placeholder="01*********" pattern="\d*" maxlength="11" title="Phone number should be 11 digit number" value="" >
-                    </label>
-                </div>
-                <div class="card bg-transparent-card w-100 border-0 ps-5 mb-3">
-                    <label class="block">
-                        <span class="text-gray-700">
-                            Password
-                        </span>
-                        <input name="password" type="password" class="block w-full mt-1 form-input" placeholder="*********" value="">
-                    </label>
-                </div>
-
-                <div class="card bg-transparent-card w-100 border-0 ps-5 mb-3">
-                    <button type="button" class="btn btn-danger" >login</button>
-                </div>
-                <div class="card bg-transparent-card w-100 border-0 ps-5">
-                    <p class="p-2 text-sm text-center">Don't have an account? <span class="text-red-600 hover:underline hover:text-red-600"><a href="{% url 'signup' %}">signup</a>
-                    <p class="text-sm text-red-600 hover:underline hover:text-red-600"><a href="/auth/forgot-password">Forgot Password</a></p>
-                </div>
-                {% endif %}
+                {% include 'accounts/login.html' %}
             </div>
     </div>
 
