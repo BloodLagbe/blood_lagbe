@@ -1,46 +1,56 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
     <title>{% block title %}Home{% endblock title %} | Blood Lagbe</title>
     <!-- Favicon icon -->
     <link
-      rel="icon"
-      type="image/png"
-      sizes="16x16"
-      href="{% static 'images/logo/blood_lagbe_logo.png'%}"
+            rel="icon"
+            type="image/png"
+            sizes="16x16"
+            href="{% static 'images/logo/blood_lagbe_logo.png'%}"
     />
+    <link rel="stylesheet" type="text/css" href="{% static 'css/custom.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/fontastic.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.blue.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.green.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.pink.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.red.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.sea.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.violet.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.default.css' %}">
     <!-- style -->
     {% block style %}{% include 'snippets/style.html' %}{% endblock style %}
     <!--extra style -->
     {% block extra_style %}{% endblock extra_style %}
-  </head>
-  <body class="color-theme-red mont-font">
-    <!-- preloader -->
-    {% block loader %}
-    <div class="preloader"></div>
-    {% endblock loader %}
+</head>
+<body class="color-theme-red mont-font">
+<!-- preloader -->
+{% block loader %}
+<div class="preloader"></div>
+{% endblock loader %}
 
-    <!-- main content -->
-    <div class="main-wrapper">
-      <!-- nav -->
-      {% block nav %}{% include 'snippets/nav.html' %} {% endblock nav %}
-      <!-- body content -->
-      {% block body %}{% endblock body %}
-      <!-- footer -->
-      {% block footer %}
-      <!-- footer include -->
-      {% include 'snippets/footer.html' %}
-      <!-- footer include -->
-      {% endblock footer %}
-    </div>
+<!-- main content -->
+<div class="main-wrapper">
+    <!-- nav -->
+    {% block nav %}{% include 'snippets/nav.html' %} {% endblock nav %}
+    <!-- body content -->
+    {% block body %}{% endblock body %}
+    <!-- footer -->
+    {% block footer %}
+    <!-- footer include -->
+    {% include 'snippets/footer.html' %}
+    <!-- footer include -->
+    {% endblock footer %}
+</div>
 
-    <!-- script -->
-    {% block scipt %}{% include 'snippets/script.html' %}{% endblock scipt %}
-    <!-- extra script -->
-    {% block extra_scripts %}{% endblock extra_scripts %}
-  </body>
+<!-- script -->
+{% block scipt %}{% include 'snippets/script.html' %}{% endblock scipt %}
+<!-- extra script -->
+{% block extra_scripts %}{% endblock extra_scripts %}
+{% include "scripts.html" %}
+</body>
 </html>
