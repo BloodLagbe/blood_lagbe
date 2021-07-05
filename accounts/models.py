@@ -5,7 +5,7 @@ from django.contrib.auth.models import (
 from django.db.models.signals import post_save
 from django.dispatch import receiver
 from django.utils.translation import gettext_lazy as _
-
+from django.contrib.auth.models import PermissionsMixin
 from django.core.validators import RegexValidator
 # Create your models here.
 
@@ -52,7 +52,8 @@ class UserManager(BaseUserManager):
         return user
 
 
-class User(AbstractBaseUser):
+class User(AbstractBaseUser, PermissionsMixin):
+    # You can create Role model separately and add ManyToMany if user has more than one role
     email = models.EmailField(
         _('Email Address'), max_length=255, unique=True, blank=False, null=True
     )
@@ -107,6 +108,10 @@ class User(AbstractBaseUser):
     def is_admin(self):
         "Is the user a admin member?"
         return self.admin
+    
+    @property
+    def get_all_permissions(self, obj=None):
+        return ""     
 
 
 def user_directory_path(instance, filename):
@@ -145,7 +150,6 @@ class Profile(models.Model):
 
     def __str__(self):
         return self.user.email
-
 
 @receiver(post_save, sender=User)
 def create_or_update_profile(sender, instance, created, **kwargs):
