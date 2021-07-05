@@ -108,10 +108,7 @@ class User(AbstractBaseUser, PermissionsMixin):
     def is_admin(self):
         "Is the user a admin member?"
         return self.admin
-    
-    @property
-    def get_all_permissions(self, obj=None):
-        return ""     
+        
 
 
 def user_directory_path(instance, filename):
