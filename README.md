@@ -16,7 +16,7 @@
 </p>
 
 <h4 align="center">
-	🚧  Blood Lagbe pip package 🚀 Under construction...  🚧 <br>
+	🚧  Blood Lagbe Website is 🚀 Under construction...  🚧 <br>
   This is the Main Website of blood lagbe by Python Django
 </h4>
 
