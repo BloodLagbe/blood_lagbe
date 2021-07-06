@@ -108,7 +108,6 @@ class User(AbstractBaseUser, PermissionsMixin):
     def is_admin(self):
         "Is the user a admin member?"
         return self.admin
-        
 
 
 def user_directory_path(instance, filename):
@@ -134,7 +133,6 @@ class Profile(models.Model):
         _('Gender'), max_length=1, blank=True, null=True,
         choices=[('M', 'Male'), ('F', 'Female')]
     )
-
     is_active = models.BooleanField(
         _('Active'), default=True, null=True
     )
@@ -144,9 +142,19 @@ class Profile(models.Model):
     last_updated = models.DateTimeField(
         _('Last Updated'), auto_now=True, null=True
     )
+    thana = models.CharField(
+        _('Thana'), max_length=255, blank=True, null=True
+    )
+    district = models.CharField(
+        _('District'), max_length=255, blank=True, null=True
+    )
+    division = models.CharField(
+        _('Division'), max_length=255, blank=True, null=True
+    )
 
     def __str__(self):
-        return self.user.email
+        return str(self.user.email)
+
 
 @receiver(post_save, sender=User)
 def create_or_update_profile(sender, instance, created, **kwargs):

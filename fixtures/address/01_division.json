@@ -1,0 +1,66 @@
+[
+{
+    "model": "address.division",
+    "pk": 1,
+    "fields": {
+        "div_name": "Barisal",
+        "div_name_bn": "বরিশাল"
+    }
+},
+{
+    "model": "address.division",
+    "pk": 2,
+    "fields": {
+        "div_name": "Chattogram",
+        "div_name_bn": "চট্টগ্রাম"
+    }
+},
+{
+    "model": "address.division",
+    "pk": 3,
+    "fields": {
+        "div_name": "Dhaka",
+        "div_name_bn": "ঢাকা"
+    }
+},
+{
+    "model": "address.division",
+    "pk": 4,
+    "fields": {
+        "div_name": "Khulna",
+        "div_name_bn": "খুলনা"
+    }
+},
+{
+    "model": "address.division",
+    "pk": 5,
+    "fields": {
+        "div_name": "Mymensingh",
+        "div_name_bn": "ময়মনসিংহ"
+    }
+},
+{
+    "model": "address.division",
+    "pk": 6,
+    "fields": {
+        "div_name": "Rajshahi",
+        "div_name_bn": "রাজশাহী"
+    }
+},
+{
+    "model": "address.division",
+    "pk": 7,
+    "fields": {
+        "div_name": "Rangpur",
+        "div_name_bn": "রংপুর"
+    }
+},
+{
+    "model": "address.division",
+    "pk": 8,
+    "fields": {
+        "div_name": "Sylhet",
+        "div_name_bn": "সিলেট"
+    }
+}
+]

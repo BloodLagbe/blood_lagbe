@@ -1,0 +1,51 @@
+[
+{
+    "model": "hospital.speciality",
+    "pk": 1,
+    "fields": {
+        "name": "Medicine"
+    }
+},
+{
+    "model": "hospital.speciality",
+    "pk": 2,
+    "fields": {
+        "name": "Neurology"
+    }
+},
+{
+    "model": "hospital.speciality",
+    "pk": 3,
+    "fields": {
+        "name": "Pathology"
+    }
+},
+{
+    "model": "hospital.speciality",
+    "pk": 4,
+    "fields": {
+        "name": "Radiation oncology"
+    }
+},
+{
+    "model": "hospital.speciality",
+    "pk": 5,
+    "fields": {
+        "name": "Surgery"
+    }
+},
+{
+    "model": "hospital.speciality",
+    "pk": 6,
+    "fields": {
+        "name": "Urology"
+    }
+},
+{
+    "model": "hospital.speciality",
+    "pk": 7,
+    "fields": {
+        "name": "Neurology"
+    }
+}
+]

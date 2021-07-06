@@ -1,0 +1,578 @@
+[
+{
+    "model": "address.district",
+    "pk": 101,
+    "fields": {
+        "division": 1,
+        "dist_name": "BARISHAL",
+        "dist_name_bn": "বরিশাল"
+    }
+},
+{
+    "model": "address.district",
+    "pk": 102,
+    "fields": {
+        "division": 1,
+        "dist_name": "PATUAKHALI",
+        "dist_name_bn": "পটুয়াখালী"
+    }
+},
+{
+    "model": "address.district",
+    "pk": 103,
+    "fields": {
+        "division": 1,
+        "dist_name": "PIROJPUR",
+        "dist_name_bn": "পিরোজপুর"
+    }
+},
+{
+    "model": "address.district",
+    "pk": 104,
+    "fields": {
+        "division": 1,
+        "dist_name": "JHALAKATHI",
+        "dist_name_bn": "ঝালকাঠি"
+    }
+},
+{
+    "model": "address.district",
+    "pk": 105,
+    "fields": {
+        "division": 1,
+        "dist_name": "BHOLA",
+        "dist_name_bn": "ভোলা"
+    }
+},
+{
+    "model": "address.district",
+    "pk": 106,
+    "fields": {
+        "division": 1,
+        "dist_name": "BARGUNA",
+        "dist_name_bn": "বরগুনা"
+    }
+},
+{
+    "model": "address.district",
+    "pk": 201,
+    "fields": {
+        "division": 2,
+        "dist_name": "CHATTOGRAM",
+        "dist_name_bn": "চট্টগ্রাম"
+    }
+},
+{
+    "model": "address.district",
+    "pk": 202,
+    "fields": {
+        "division": 2,
+        "dist_name": "COXSBAZAR",
+        "dist_name_bn": "কক্সবাজার"
+    }
+},
+{
+    "model": "address.district",
+    "pk": 203,
+    "fields": {
+        "division": 2,
+        "dist_name": "BRAHMANBARIA",
+        "dist_name_bn": "ব্রাহ্মণবাড়িয়া"
+    }
+},
+{
+    "model": "address.district",
+    "pk": 204,
+    "fields": {
+        "division": 2,
+        "dist_name": "CUMILLA",
+        "dist_name_bn": "কুমিল্লা"
+    }
+},
+{
+    "model": "address.district",
+    "pk": 205,
+    "fields": {
+        "division": 2,
+        "dist_name": "LAKSHMIPUR",
+        "dist_name_bn": "লক্ষ্মীপুর"
+    }
+},
+{
+    "model": "address.district",
+    "pk": 206,
+    "fields": {
+        "division": 2,
+        "dist_name": "NOAKHALI",
+        "dist_name_bn": "নোয়াখালী"
+    }
+},
+{
+    "model": "address.district",
+    "pk": 207,
+    "fields": {
+        "division": 2,
+        "dist_name": "FENI",
+        "dist_name_bn": "ফেনী"
+    }
+},
+{
+    "model": "address.district",
+    "pk": 208,
+    "fields": {
+        "division": 2,
+        "dist_name": "CHANDPUR",
+        "dist_name_bn": "চাঁদপুর"
+    }
+},
+{
+    "model": "address.district",
+    "pk": 209,
+    "fields": {
+        "division": 2,
+        "dist_name": "RANGAMATI",
+        "dist_name_bn": "রাঙামাটি"
+    }
+},
+{
+    "model": "address.district",
+    "pk": 210,
+    "fields": {
+        "division": 2,
+        "dist_name": "BANDARBAN",
+        "dist_name_bn": "বান্দরবান"
+    }
+},
+{
+    "model": "address.district",
+    "pk": 211,
+    "fields": {
+        "division": 2,
+        "dist_name": "KHAGRACHHARI",
+        "dist_name_bn": "খাগড়াছড়ি"
+    }
+},
+{
+    "model": "address.district",
+    "pk": 301,
+    "fields": {
+        "division": 3,
+        "dist_name": "DHAKA",
+        "dist_name_bn": "ঢাকা"
+    }
+},
+{
+    "model": "address.district",
+    "pk": 302,
+    "fields": {
+        "division": 3,
+        "dist_name": "GAZIPUR",
+        "dist_name_bn": "গাজীপুর"
+    }
+},
+{
+    "model": "address.district",
+    "pk": 303,
+    "fields": {
+        "division": 3,
+        "dist_name": "NARAYANGANJ",
+        "dist_name_bn": "নারায়ণগঞ্জ"
+    }
+},
+{
+    "model": "address.district",
+    "pk": 304,
+    "fields": {
+        "division": 3,
+        "dist_name": "MUNSHIGANJ",
+        "dist_name_bn": "মুন্সিগঞ্জ"
+    }
+},
+{
+    "model": "address.district",
+    "pk": 305,
+    "fields": {
+        "division": 3,
+        "dist_name": "MANIKGANJ",
+        "dist_name_bn": "মানিকগঞ্জ"
+    }
+},
+{
+    "model": "address.district",
+    "pk": 306,
+    "fields": {
+        "division": 3,
+        "dist_name": "NARSINGDI",
+        "dist_name_bn": "নরসিংদী"
+    }
+},
+{
+    "model": "address.district",
+    "pk": 307,
+    "fields": {
+        "division": 3,
+        "dist_name": "KISHOREGANJ",
+        "dist_name_bn": "কিশোরগঞ্জ"
+    }
+},
+{
+    "model": "address.district",
+    "pk": 308,
+    "fields": {
+        "division": 3,
+        "dist_name": "TANGAIL",
+        "dist_name_bn": "টাঙ্গাইল"
+    }
+},
+{
+    "model": "address.district",
+    "pk": 309,
+    "fields": {
+        "division": 3,
+        "dist_name": "FARIDPUR",
+        "dist_name_bn": "ফরিদপুর"
+    }
+},
+{
+    "model": "address.district",
+    "pk": 310,
+    "fields": {
+        "division": 3,
+        "dist_name": "RAJBARI",
+        "dist_name_bn": "রাজবাড়ী"
+    }
+},
+{
+    "model": "address.district",
+    "pk": 311,
+    "fields": {
+        "division": 3,
+        "dist_name": "SHARIATPUR",
+        "dist_name_bn": "শরিয়তপুর"
+    }
+},
+{
+    "model": "address.district",
+    "pk": 312,
+    "fields": {
+        "division": 3,
+        "dist_name": "MADARIPUR",
+        "dist_name_bn": "মাদারীপুর"
+    }
+},
+{
+    "model": "address.district",
+    "pk": 313,
+    "fields": {
+        "division": 3,
+        "dist_name": "GOPALGANJ",
+        "dist_name_bn": "গোপালগঞ্জ"
+    }
+},
+{
+    "model": "address.district",
+    "pk": 401,
+    "fields": {
+        "division": 4,
+        "dist_name": "KHULNA",
+        "dist_name_bn": "খুলনা"
+    }
+},
+{
+    "model": "address.district",
+    "pk": 402,
+    "fields": {
+        "division": 4,
+        "dist_name": "BAGERHAT",
+        "dist_name_bn": "বাগেরহাট"
+    }
+},
+{
+    "model": "address.district",
+    "pk": 403,
+    "fields": {
+        "division": 4,
+        "dist_name": "SATKHIRA",
+        "dist_name_bn": "সাতক্ষীরা"
+    }
+},
+{
+    "model": "address.district",
+    "pk": 404,
+    "fields": {
+        "division": 4,
+        "dist_name": "JASHORE",
+        "dist_name_bn": "যশোর"
+    }
+},
+{
+    "model": "address.district",
+    "pk": 405,
+    "fields": {
+        "division": 4,
+        "dist_name": "NARAIL",
+        "dist_name_bn": "নড়াইল"
+    }
+},
+{
+    "model": "address.district",
+    "pk": 406,
+    "fields": {
+        "division": 4,
+        "dist_name": "KUSHTIA",
+        "dist_name_bn": "কুষ্টিয়া"
+    }
+},
+{
+    "model": "address.district",
+    "pk": 407,
+    "fields": {
+        "division": 4,
+        "dist_name": "MAGURA",
+        "dist_name_bn": "মাগুরা"
+    }
+},
+{
+    "model": "address.district",
+    "pk": 408,
+    "fields": {
+        "division": 4,
+        "dist_name": "MEHERPUR",
+        "dist_name_bn": "মেহেরপুর"
+    }
+},
+{
+    "model": "address.district",
+    "pk": 409,
+    "fields": {
+        "division": 4,
+        "dist_name": "JHENAIDAH",
+        "dist_name_bn": "ঝিনাইদহ"
+    }
+},
+{
+    "model": "address.district",
+    "pk": 410,
+    "fields": {
+        "division": 4,
+        "dist_name": "CHUADANGA",
+        "dist_name_bn": "চুয়াডাঙ্গা"
+    }
+},
+{
+    "model": "address.district",
+    "pk": 501,
+    "fields": {
+        "division": 5,
+        "dist_name": "MYMENSINGH",
+        "dist_name_bn": "ময়মনসিংহ"
+    }
+},
+{
+    "model": "address.district",
+    "pk": 502,
+    "fields": {
+        "division": 5,
+        "dist_name": "NETROKONA",
+        "dist_name_bn": "নেত্রকোনা"
+    }
+},
+{
+    "model": "address.district",
+    "pk": 503,
+    "fields": {
+        "division": 5,
+        "dist_name": "JAMALPUR",
+        "dist_name_bn": "জামালপুর"
+    }
+},
+{
+    "model": "address.district",
+    "pk": 504,
+    "fields": {
+        "division": 5,
+        "dist_name": "SHERPUR",
+        "dist_name_bn": "শেরপুর"
+    }
+},
+{
+    "model": "address.district",
+    "pk": 601,
+    "fields": {
+        "division": 6,
+        "dist_name": "RAJSHAHI",
+        "dist_name_bn": "রাজশাহী"
+    }
+},
+{
+    "model": "address.district",
+    "pk": 602,
+    "fields": {
+        "division": 6,
+        "dist_name": "CHAPAINAWABGANJ",
+        "dist_name_bn": "চাঁপাইনবাবগঞ্জ"
+    }
+},
+{
+    "model": "address.district",
+    "pk": 603,
+    "fields": {
+        "division": 6,
+        "dist_name": "NATORE",
+        "dist_name_bn": "নাটোর"
+    }
+},
+{
+    "model": "address.district",
+    "pk": 604,
+    "fields": {
+        "division": 6,
+        "dist_name": "NAOGAON",
+        "dist_name_bn": "নওগাঁ"
+    }
+},
+{
+    "model": "address.district",
+    "pk": 605,
+    "fields": {
+        "division": 6,
+        "dist_name": "BOGURA",
+        "dist_name_bn": "বগুড়া"
+    }
+},
+{
+    "model": "address.district",
+    "pk": 606,
+    "fields": {
+        "division": 6,
+        "dist_name": "PABNA",
+        "dist_name_bn": "পাবনা"
+    }
+},
+{
+    "model": "address.district",
+    "pk": 607,
+    "fields": {
+        "division": 6,
+        "dist_name": "SIRAJGANJ",
+        "dist_name_bn": "সিরাজগঞ্জ"
+    }
+},
+{
+    "model": "address.district",
+    "pk": 608,
+    "fields": {
+        "division": 6,
+        "dist_name": "JOYPURHAT",
+        "dist_name_bn": "জয়পুরহাট"
+    }
+},
+{
+    "model": "address.district",
+    "pk": 701,
+    "fields": {
+        "division": 7,
+        "dist_name": "RANGPUR",
+        "dist_name_bn": "রংপুর"
+    }
+},
+{
+    "model": "address.district",
+    "pk": 702,
+    "fields": {
+        "division": 7,
+        "dist_name": "GAIBANDHA",
+        "dist_name_bn": "গাইবান্ধা"
+    }
+},
+{
+    "model": "address.district",
+    "pk": 703,
+    "fields": {
+        "division": 7,
+        "dist_name": "KURIGRAM",
+        "dist_name_bn": "কুড়িগ্রাম"
+    }
+},
+{
+    "model": "address.district",
+    "pk": 704,
+    "fields": {
+        "division": 7,
+        "dist_name": "PANCHAGARH",
+        "dist_name_bn": "পঞ্চগড়"
+    }
+},
+{
+    "model": "address.district",
+    "pk": 705,
+    "fields": {
+        "division": 7,
+        "dist_name": "THAKURGAON",
+        "dist_name_bn": "ঠাকুরগাঁও"
+    }
+},
+{
+    "model": "address.district",
+    "pk": 706,
+    "fields": {
+        "division": 7,
+        "dist_name": "LALMONIRHAT",
+        "dist_name_bn": "লালমনিরহাট"
+    }
+},
+{
+    "model": "address.district",
+    "pk": 707,
+    "fields": {
+        "division": 7,
+        "dist_name": "DINAJPUR",
+        "dist_name_bn": "দিনাজপুর"
+    }
+},
+{
+    "model": "address.district",
+    "pk": 708,
+    "fields": {
+        "division": 7,
+        "dist_name": "NILPHAMARI",
+        "dist_name_bn": "নীলফামারী"
+    }
+},
+{
+    "model": "address.district",
+    "pk": 801,
+    "fields": {
+        "division": 8,
+        "dist_name": "SYLHET",
+        "dist_name_bn": "সিলেট"
+    }
+},
+{
+    "model": "address.district",
+    "pk": 802,
+    "fields": {
+        "division": 8,
+        "dist_name": "SUNAMGANJ",
+        "dist_name_bn": "সুনামগঞ্জ"
+    }
+},
+{
+    "model": "address.district",
+    "pk": 803,
+    "fields": {
+        "division": 8,
+        "dist_name": "MOULVIBAZAR",
+        "dist_name_bn": "মৌলভীবাজার"
+    }
+},
+{
+    "model": "address.district",
+    "pk": 804,
+    "fields": {
+        "division": 8,
+        "dist_name": "HABIGANJ",
+        "dist_name_bn": "হবিগঞ্জ"
+    }
+}
+]
