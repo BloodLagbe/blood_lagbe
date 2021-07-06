@@ -36,3 +36,125 @@ class Setting(models.Model):
     slogan = models.CharField(_("Slogan for system"),
                               max_length=100, blank=True, null=True,
                               help_text='সিস্টেম এর স্লগান')
+
+
+class Division(models.Model):
+    """
+    Division model
+    """
+
+    name = models.CharField(max_length=100, blank=False, null=True)
+
+    name_bn = models.CharField(max_length=100, blank=False, null=True)
+
+    code = models.CharField(max_length=10, blank=False, null=True)
+
+    created_at = models.DateTimeField(auto_now_add=True, null=True)
+
+    updated_at = models.DateTimeField(auto_now=True, null=True)
+
+    class Meta:
+        ordering = ['name']
+
+    def __str__(self):
+        return self.name
+
+
+class District(models.Model):
+    """
+    District model
+    """
+
+    division = models.ForeignKey(
+        Division, on_delete=models.SET_NULL, blank=False, null=True,)
+
+    name = models.CharField(max_length=100, blank=False, null=True)
+
+    name_bn = models.CharField(max_length=100, blank=False, null=True)
+
+    code = models.CharField(max_length=10, blank=False, null=True)
+
+    created_at = models.DateTimeField(auto_now_add=True, null=True)
+
+    updated_at = models.DateTimeField(auto_now=True, null=True)
+
+    class Meta:
+        ordering = ['name']
+
+    def __str__(self):
+        return self.name
+
+
+class Upazila(models.Model):
+    """
+    Upazila model
+    """
+
+    district = models.ForeignKey(
+        District, on_delete=models.SET_NULL, blank=False, null=True,)
+
+    name = models.CharField(max_length=100, blank=False, null=True)
+
+    name_bn = models.CharField(max_length=100, blank=False, null=True)
+
+    code = models.CharField(max_length=10, blank=False, null=True)
+
+    created_at = models.DateTimeField(auto_now_add=True, null=True)
+
+    updated_at = models.DateTimeField(auto_now=True, null=True)
+
+    class Meta:
+        ordering = ['name']
+
+    def __str__(self):
+        return self.name
+
+
+class Union(models.Model):
+    """
+    Union model
+    """
+
+    upazila = models.ForeignKey(
+        Upazila, on_delete=models.SET_NULL, blank=False, null=True,)
+
+    name = models.CharField(max_length=100, blank=False, null=True)
+
+    name_bn = models.CharField(max_length=100, blank=False, null=True)
+
+    code = models.CharField(max_length=10, blank=False, null=True)
+
+    created_at = models.DateTimeField(auto_now_add=True, null=True)
+
+    updated_at = models.DateTimeField(auto_now=True, null=True)
+
+    class Meta:
+        ordering = ['name']
+
+    def __str__(self):
+        return self.name
+
+
+class Village(models.Model):
+    """
+    Village model
+    """
+
+    union = models.ForeignKey(
+        Union, on_delete=models.SET_NULL, blank=False, null=True,)
+
+    name = models.CharField(max_length=100, blank=False, null=True)
+
+    name_bn = models.CharField(max_length=100, blank=False, null=True)
+
+    code = models.CharField(max_length=10, blank=False, null=True)
+
+    created_at = models.DateTimeField(auto_now_add=True, null=True)
+
+    updated_at = models.DateTimeField(auto_now=True, null=True)
+
+    class Meta:
+        ordering = ['name']
+
+    def __str__(self):
+        return self.name

@@ -19,6 +19,7 @@ from django.contrib import admin
 from django.contrib.auth import views as auth_views
 from django.urls import path, include
 from blog.views import postView
+from core import utilities
 #from django.conf.urls.i18n import i18n_patterns
 #from django.conf.urls import url
 
@@ -29,11 +30,29 @@ urlpatterns = [
 
     # pages url ----
     path('', include("pages.urls"), name='index'),
+    path('core/', include("core.urls")),
     path('accounts/', include("accounts.urls"), name='accounts'),
 
     path('', include("pages.urls")),
     path('blog/', include("blog.urls")),
     path('blog/<id>/', postView, name='blog-view'),
+
+    # data import urls ----------
+
+    path('division_import/', utilities.division_import,
+         name='division_import'),
+
+    path('district_import/', utilities.district_import,
+         name='district_import'),
+
+    path('upazila_import/', utilities.upazila_import,
+         name='upazila_import'),
+
+    path('union_import/', utilities.union_import,
+         name='union_import'),
+
+    path('village_import/', utilities.village_import,
+         name='village_import'),
 
     # auth urls -----
     path('accounts/', include('django.contrib.auth.urls')),
