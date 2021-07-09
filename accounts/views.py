@@ -45,7 +45,6 @@ def signup_view(request):
     ("Address")
     ("Register")
 
-
     context = {}
     if not request.user.is_authenticated:
         if request.POST:
@@ -57,7 +56,8 @@ def signup_view(request):
                 email = form.cleaned_data.get('email')
                 raw_password = form.cleaned_data.get('password1')
                 form.save(commit=True)
-                account = authenticate(name=name, phone=phone, email=email, password=raw_password)
+                account = authenticate(
+                    name=name, phone=phone, email=email, password=raw_password)
                 login(request, account)
                 return render(request, 'pages/home.html')
             else:

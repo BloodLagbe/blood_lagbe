@@ -1,96 +1,188 @@
-{% extends 'base/base.html' %} {% block body %}
-<div class="container">
-  <div class="block-end">
-    <div class="head-notice">
-      <div class="registration_form">
-        <div class="form">
-          <h2 class="form_tittle" style="margin-bottom: 15px">REGISTER</h2>
+{% extends 'base/base.html' %} 
+{% load static %}
+    {% block extra_style %}
+    
+        <style>
+        .nav-header {
+              position: fixed;
+              top: 0;
+              left: 0;
+              right: 0;
+              z-index: 10;
+              display: -webkit-box;
+              display: -ms-flexbox;
+              display: flex;
+              -webkit-box-align: center;
+              -ms-flex-align: center;
+              align-items: center;
+              height: 96px;
+              padding: 0 15px;
+              background: #ffffff;
+                  background-color: rgb(255, 255, 255);
+              border-bottom: 2px #eee solid;
+              -webkit-transition: left 0.25s;
+              -o-transition: left 0.25s;
+              transition: left 0.25s;
+          }
+        </style>
+    {% endblock extra_style %}
 
+    {% block nav %}
+<div class="nav-header bg-transparent shadow-none border-0">
+            <div class="nav-top w-100">
+
+                <a href="/"><img class="ml-0" src="{% static 'images/logo/blood_lagbe_logo-v2.png' %}" alt="" style="width: 90px;"> </span> </a>
+                    <button class="nav-menu me-0 ms-2"></button>
+                </a>
+                <a href="#" class="mob-menu ms-auto me-2 chat-active-btn">
+                <i class="feather-message-circle text-grey-900 font-sm btn-round-md bg-greylight"></i>
+                </a>
+                <a href="default-video.html" class="mob-menu me-2">
+                <i class="feather-video text-grey-900 font-sm btn-round-md bg-greylight"></i>
+                </a>
+                <a href="#" class="me-2 menu-search-icon mob-menu">
+                <i class="feather-search text-grey-900 font-sm btn-round-md bg-greylight"></i>
+                </a>
+                <button class="nav-menu me-0 ms-2"></button>
+                <a href="#" class="header-btn d-none d-lg-block bg-dark fw-500 text-white font-xsss p-3 ms-auto w100 text-center lh-20 rounded-xl" data-bs-toggle="modal" data-bs-target="#Modallogin">Login</a>
+                <a href="#" class="header-btn d-none d-lg-block bg-current fw-500 text-white font-xsss p-3 ms-2 w100 text-center lh-20 rounded-xl" data-bs-toggle="modal" data-bs-target="#Modalregister">Register</a>
+
+            </div>
+            
+            
+        </div>
+
+    {% endblock nav %}
+
+{% block body %}
+<div class="row">
+  <div
+    class="col-xl-6 d-none d-xl-block p-0 vh-100 bg-image-cover bg-no-repeat"
+    style="background-image: url(/static/images/login-bg-2.jpg);"
+  ></div>
+  <div
+    class="
+      col-xl-5
+      vh-100
+      align-items-center
+      d-flex
+      bg-white
+      rounded-3
+      overflow-hidden
+    "
+  >
+    <div class="card shadow-none border-0 me-auto login-card">
+      <div class="card-body rounded-0 text-left">
+        <h2 class="fw-700 display1-size display2-md-size mb-5">
+          Create <br />your account
+        </h2>
           <form method="post" id="register-form">
             {% csrf_token %}
             <input type="hidden" name="is_approved_buyer" value="true" />
 
-            <div class="form-group">
-              {{ registration_form.name.errors }}
+            <div class="form-group mb-3">
+
               <label for="{{ registration_form.first_name.id_for_label }}"
                 >First Name</label
               >
+              <br>
               {{ registration_form.first_name }}
+              {% if registration_form.first_name.errors %}
+              <span class="form-icon form-icon-danger" aria-hidden="true"></span>
+              {% endif %}
+
             </div>
 
-            <div class="form-group">
-              {{ registration_form.name.errors }}
+            <div class="form-group mb-3">
               <label for="{{ registration_form.last_name.id_for_label }}"
                 >Last Name</label
               >
+                            <br>
               {{ registration_form.last_name }}
+              {% if registration_form.last_name.errors %}
+                {% for error in registration_form.last_name.errors %}
+                  <div class="invalid-feedback">{{ error }}</div>
+                {% endfor %}
+              {% endif %}
             </div>
 
-            <div class="form-group">
-              {{ registration_form.phone.errors }}
+            <div class="form-group mb-3">
               <label for="{{ registration_form.phone.id_for_label }}"
                 >Phone Number*</label
               >
+              <br>
               {{ registration_form.phone }}
-              <small class="text-muted"
-                >Required. Add a valid phone number</small
-              >
+              {% if registration_form.phone.errors %}
+                <span class="form-control-feedback">
+                  {% if registration_form.phone.errors.is_empty %}
+                    Please enter a valid phone number.
+                  {% endif %}
+                </span>
+              {% endif %}
             </div>
 
-            <div class="form-group">
-              {{ registration_form.email.errors }}
+            <div class="form-group mb-3">
               <label for="{{ registration_form.email.id_for_label }}"
                 >Email</label
-              >
+              ><br>
               {{ registration_form.email }}
+              {% if registration_form.email.errors %}
+                <small class="text-muted">
+                  <span class="text-danger">{{ registration_form.email.errors }}</span>
+                </small>
+              {% endif %}
             </div>
 
-            <div class="form-group">
-              {{ registration_form.password1.errors }}
+            <div class="form-group mb-3">
               <label for="{{ registration_form.password1.id_for_label }}"
                 >Password</label
-              >
+              ><br>
 
               {{ registration_form.password1 }}
-
-              <small class="text-muted"
-                >Your password can't be too similar to your other personal
-                information.</small
-              >
-              <small class="text-muted"
-                >Your password must contain at least 8 characters.</small
-              >
-              <small class="text-muted"
-                >Your password can't be a commonly used password.</small
-              >
-              <small class="text-muted"
-                >Your password can't be entirely numeric.</small
-              >
+              {% if registration_form.password1.errors %}
+                  <small class="text-danger">{{ registration_form.password1.errors|first }}</small>
+              {% endif %}
             </div>
 
-            <div class="form-group">
-              {{ registration_form.password2.errors }}
+            <div class="form-group mb-3">
               <label for="{{ registration_form.password2.id_for_label }}"
                 >Confirm Password</label
-              >
+              ><br>
               {{ registration_form.password2 }}
-              <small class="text-muted"
-                >Enter the same password as before, for verification.</small
-              >
+              {% if registration_form.password2.errors %}
+                <small class="text-danger">{{ registration_form.password2.errors|first }}</small>
+              {% endif %}
+
             </div>
 
             <button
-              class="submit_button"
+              class="submit_button form-control
+                text-center
+                style2-input
+                text-white
+                fw-600
+                bg-dark
+                border-0
+                p-0 w-30"
               type="submit"
               data-toggle="modal"
-              data-target="#exampleModalCenter"
+              data-target="#exampleModalCenter" style="width: 30%;"
             >
-              Register'
+              Register
             </button>
           </form>
+        <div class="col-sm-12 p-0 text-left">
+          <h6 class="text-grey-500 font-xsss fw-500 mt-0 mb-0 lh-32">
+            Already have account
+            <a href="login.html" class="fw-700 ms-1">Login</a>
+          </h6>
         </div>
       </div>
     </div>
   </div>
 </div>
 {% endblock %}
+    {% block footer %}
+    <!-- footer include -->
+    <!-- footer include -->
+    {% endblock footer %}
