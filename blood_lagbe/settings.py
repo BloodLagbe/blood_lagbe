@@ -30,21 +30,35 @@ ALLOWED_HOSTS = []
 
 # Application definition
 
-INSTALLED_APPS = [
-    'address',
+DJANGO_APPS = [
     'jazzmin',
-    'blog',
-    'core',
-    'pages',
-    'accounts',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'widget_tweaks',
 ]
+
+PLUGIN_APPS = [
+    'widget_tweaks',
+    # 'django_extensions',
+    'import_export',
+    'crispy_forms',
+    'bootstrap_datepicker_plus',
+    'ckeditor',
+    'ckeditor_uploader',
+]
+
+PROJECT_APPS = [
+    'core.apps.CoreConfig',
+    'blog.apps.BlogappConfig',
+    'pages.apps.PagesConfig',
+    'address.apps.AddressConfig',
+    'accounts.apps.AccountsConfig',
+]
+
+INSTALLED_APPS = DJANGO_APPS + PLUGIN_APPS + PROJECT_APPS
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -271,4 +285,22 @@ JAZZMIN_SETTINGS = {
     # override change forms on a per modeladmin basis
     "changeform_format_overrides": {"auth.user": "collapsible", "auth.group": "vertical_tabs"},
     # Add a language dropdown into the admin
+}
+
+CKEDITOR_UPLOAD_PATH = "uploads/"
+CKEDITOR_CONFIGS = {
+    'default': {
+        'toolbar': 'Custom',
+        'height': 250,
+        'width': 700,
+        'toolbar_Custom': [
+            ['Bold', 'Italic', 'Underline'],
+            [
+                'NumberedList', 'BulletedList', '-', 'Outdent', 'Indent', '-',
+                'JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock'
+            ],
+            ['Link', 'Unlink'],
+            ['RemoveFormat', 'Source']
+        ]
+    }
 }

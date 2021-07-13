@@ -1,8 +1,19 @@
-{% extends 'base/base.html' %} 
+{% extends 'base/base.html' %}
 {% load static %}
     {% block extra_style %}
     
         <style>
+        .form-control {
+            height: 33px;
+            display: inline-block;
+            border: 1px #000 solid;
+            margin: 0;
+            width: 210px;
+            font-family: inherit;
+            font-size: inherit;
+            border-radius: 0;
+            line-height: inherit;
+        }
         .nav-header {
               position: fixed;
               top: 0;
@@ -24,10 +35,11 @@
               -o-transition: left 0.25s;
               transition: left 0.25s;
           }
+
         </style>
     {% endblock extra_style %}
 
-    {% block nav %}
+    {% block reg %}
 <div class="nav-header bg-transparent shadow-none border-0">
             <div class="nav-top w-100">
 
@@ -52,135 +64,128 @@
             
         </div>
 
-    {% endblock nav %}
+    {% endblock reg %}
 
 {% block body %}
+<body class="color-theme-blue">
+<div class="container rounded bg-white mt-5 mb-5">
 <div class="row">
-  <div
-    class="col-xl-6 d-none d-xl-block p-0 vh-100 bg-image-cover bg-no-repeat"
-    style="background-image: url(/static/images/login-bg-2.jpg);"
-  ></div>
-  <div
-    class="
-      col-xl-5
-      vh-100
-      align-items-center
-      d-flex
-      bg-white
-      rounded-3
-      overflow-hidden
-    "
-  >
-    <div class="card shadow-none border-0 me-auto login-card">
-      <div class="card-body rounded-0 text-left">
-        <h2 class="fw-700 display1-size display2-md-size mb-5">
-          Create <br />your account
-        </h2>
-          <form method="post" id="register-form">
-            {% csrf_token %}
-            <input type="hidden" name="is_approved_buyer" value="true" />
-
-            <div class="form-group mb-3">
-
-              <label for="{{ registration_form.first_name.id_for_label }}"
-                >First Name</label
-              >
-              <br>
-              {{ registration_form.first_name }}
-              {% if registration_form.first_name.errors %}
-              <span class="form-icon form-icon-danger" aria-hidden="true"></span>
-              {% endif %}
-
-            </div>
-
-            <div class="form-group mb-3">
-              <label for="{{ registration_form.last_name.id_for_label }}"
-                >Last Name</label
-              >
-                            <br>
-              {{ registration_form.last_name }}
-              {% if registration_form.last_name.errors %}
-                {% for error in registration_form.last_name.errors %}
-                  <div class="invalid-feedback">{{ error }}</div>
-                {% endfor %}
-              {% endif %}
-            </div>
-
-            <div class="form-group mb-3">
-              <label for="{{ registration_form.phone.id_for_label }}"
-                >Phone Number*</label
-              >
-              <br>
-              {{ registration_form.phone }}
-              {% if registration_form.phone.errors %}
-                <span class="form-control-feedback">
-                  {% if registration_form.phone.errors.is_empty %}
-                    Please enter a valid phone number.
-                  {% endif %}
-                </span>
-              {% endif %}
-            </div>
-
-            <div class="form-group mb-3">
-              <label for="{{ registration_form.email.id_for_label }}"
-                >Email</label
-              ><br>
-              {{ registration_form.email }}
-              {% if registration_form.email.errors %}
-                <small class="text-muted">
-                  <span class="text-danger">{{ registration_form.email.errors }}</span>
-                </small>
-              {% endif %}
-            </div>
-
-            <div class="form-group mb-3">
-              <label for="{{ registration_form.password1.id_for_label }}"
-                >Password</label
-              ><br>
-
-              {{ registration_form.password1 }}
-              {% if registration_form.password1.errors %}
-                  <small class="text-danger">{{ registration_form.password1.errors|first }}</small>
-              {% endif %}
-            </div>
-
-            <div class="form-group mb-3">
-              <label for="{{ registration_form.password2.id_for_label }}"
-                >Confirm Password</label
-              ><br>
-              {{ registration_form.password2 }}
-              {% if registration_form.password2.errors %}
-                <small class="text-danger">{{ registration_form.password2.errors|first }}</small>
-              {% endif %}
-
-            </div>
-
-            <button
-              class="submit_button form-control
-                text-center
-                style2-input
-                text-white
-                fw-600
-                bg-dark
-                border-0
-                p-0 w-30"
-              type="submit"
-              data-toggle="modal"
-              data-target="#exampleModalCenter" style="width: 30%;"
-            >
-              Register
-            </button>
-          </form>
-        <div class="col-sm-12 p-0 text-left">
-          <h6 class="text-grey-500 font-xsss fw-500 mt-0 mb-0 lh-32">
-            Already have account
-            <a href="login.html" class="fw-700 ms-1">Login</a>
-          </h6>
+        <div class="col-md-5" style="background-image: url(/static/images/login-bg-2.jpg); background-size: 100% 100%;">
         </div>
-      </div>
+        <div class="col-md-7 border-right">
+            <div class="p-3">
+                    <h5 class="display1-size display2-md-size mb-4">Create Your Account</h5>
+                <form method="POST" id="update-profile-form">
+                    {% csrf_token %}
+
+                    <div class="picture-container text-centre">
+                        <input id="imageUpload" type="file" name="profile_photo" placeholder="Photo" required="" capture>
+<!--&lt;!&ndash;        &lt;!&ndash;            <span class="font-weight-bold">Amelly</span>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;        &lt;!&ndash;            <span class="text-black-50">amelly12@bbb.com</span>&ndash;&gt;&ndash;&gt;-->
+                    </div>
+                    <div class="row mt-2">
+                        <div class="col-md-6">
+                            <label for="{{ registration_form.first_name.id_for_label }}">First Name</label>
+                            <br/>
+                            {{ registration_form.first_name}}
+                        </div>
+                        <div class="col-md-6">
+                            <label for="{{ registration_form.last_name.id_for_label }}">Last Name</label>
+                            <br/>
+                            {{ registration_form.last_name}}
+                        </div>
+                        <div class="col-md-6">
+                            <label for="{{ registration_form.phone.id_for_label }}">Phone Number*</label>
+                              <br/>
+                              {{ registration_form.phone }}
+                        </div>
+                        <div class="col-md-6">
+                            <label for="{{ registration_form.email.id_for_label }}">Email</label><br>
+                              {{ registration_form.email }}
+                              {% if registration_form.email.errors %}
+                                <small class="text-muted">
+                                  <span class="text-danger">{{ registration_form.email.errors }}</span>
+                                </small>
+                              {% endif %}
+                        </div>
+                    </div>
+                    <div class="row mt-3">
+                        {% csrf_token %}
+                        <div class="col-md-6">
+                            <label class="labels">Blood Group</label><br/>
+                            <select name="blood_group" id="exampleInputBlood" >
+                                <option value = "" selected>--------------</option>
+                                {% for x in blood %}
+                                <option value = "{{ x.id }}" >{{ x.name }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="labels">Gender</label><br/>
+                            <select name="gender" id="exampleInputGender" >
+                                <option value = "" selected>-----------------</option>
+                                <option value = "M" >Male</option>
+                                <option value = "F" >Female</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row mt-3">
+                        {% csrf_token %}
+                        <div class="col-md-6">
+                            <label class="labels">Birthday</label>
+                            <input type="date" class="form-control" name="birthday" placeholder="" value="">
+                        </div>
+                        <div class="col-md-6">
+                            <label class="labels">Division</label>
+                            <select name="division" id="exampleInputDivision" >
+                                <option value = "" selected>--------------</option>
+                                {% for x in division %}
+                                <option value = "{{ x.div_name }}" >{{ x.div_name }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="labels">District</label>
+                            <select name="district" id="exampleInputDistrict" >
+                                <option value = "" selected>--------------</option>
+                                {% for x in district %}
+                                <option value = "{{ x.dist_name }}" >{{ x.dist_name }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="labels">Upazila</label>
+                            <select name="upazilla" id="exampleInputUpazila" >
+                                <option value = "" selected>--------------</option>
+                                {% for x in upazilla %}
+                                <option value = "{{ x.upazila_name }}" >{{ x.upazila_name }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="{{ registration_form.password1.id_for_label }}">Password</label><br>
+                              {{ registration_form.password1 }}
+                              {% if registration_form.password1.errors %}
+                                  <small class="text-danger">{{ registration_form.password1.errors|first }}</small>
+                              {% endif %}
+                        </div>
+                        <div class="col-md-6">
+                            <label for="{{ registration_form.password2.id_for_label }}">Confirm Password</label><br>
+                              {{ registration_form.password2 }}
+                              {% if registration_form.password2.errors %}
+                                <small class="text-danger">{{ registration_form.password2.errors|first }}</small>
+                              {% endif %}
+                        </div>
+                    </div>
+                    <div class="mt-5 text-center">
+                        <button class="btn btn-primary btn-block btn-danger" type="submit">Submit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
     </div>
-  </div>
 </div>
+</body>
 {% endblock %}
     {% block footer %}
     <!-- footer include -->
