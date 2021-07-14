@@ -14,7 +14,6 @@ et-xmlfile==1.1.0
 flake8==3.9.1
 MarkupPy==1.14
 mccabe==0.6.1
-mysqlclient==2.0.3
 odfpy==1.4.1
 openpyxl==3.0.7
 Pillow==8.2.0

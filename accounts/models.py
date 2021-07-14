@@ -8,6 +8,9 @@ from django.dispatch import receiver
 from django.utils.translation import gettext_lazy as _
 from django.contrib.auth.models import PermissionsMixin
 from django.core.validators import RegexValidator
+from address.models import (
+    Division, District, Upazila
+)
 # Create your models here.
 
 
@@ -162,15 +165,19 @@ class Profile(models.Model):
     thana = models.CharField(
         _('Thana'), max_length=255, blank=True, null=True
     )
-    district = models.CharField(
-        _('District'), max_length=255, blank=True, null=True
+    upazila = models.ForeignKey(
+        Upazila, on_delete=models.SET_NULL, blank=True, null=True
+
     )
-    division = models.CharField(
-        _('Division'), max_length=255, blank=True, null=True
+    district = models.ForeignKey(
+        District, on_delete=models.SET_NULL, blank=True, null=True
+    )
+    division = models.ForeignKey(
+        Division, on_delete=models.SET_NULL, blank=True, null=True
     )
 
     def __str__(self):
-        return str(self.user.email)
+        return str(self.user.phone)
 
 
 @receiver(post_save, sender=User)
