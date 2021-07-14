@@ -4,23 +4,38 @@ from accounts.models import User
 
 def ajax_request_filter(request):
     template = "pages/donor_filter.html"
-    divisionID = request.GET.get('division')
-    districtID = request.GET.get('district')
-    upazilaID = request.GET.get('upazila')
-    bloodID = request.GET.get('blood')
-
-    print("divisionID--------", divisionID)
-    print("districtID--------", districtID)
-    print("upazilaID--------", upazilaID)
-    print("bloodID--------", bloodID)
+    division_id = request.GET.get('division')
+    district_id = request.GET.get('district')
+    upazila_id = request.GET.get('upazila')
+    blood_id = request.GET.get('blood')
     objects_list = User.objects.filter(is_active=True).order_by('-id')
-    
-    if divisionID:
-        if divisionID == 0:
+    if division_id:
+        if division_id == 0:
             objects_list = objects_list
         else:
             objects_list = objects_list.filter(
-                profile__division__pk=divisionID
+                profile__division__pk=division_id
+            )
+    if district_id:
+        if district_id == 0:
+            objects_list = objects_list
+        else:
+            objects_list = objects_list.filter(
+                profile__district__pk=district_id
+            )
+    if upazila_id:
+        if upazila_id == 0:
+            objects_list = objects_list
+        else:
+            objects_list = objects_list.filter(
+                profile__upazila__pk=upazila_id
+            )
+    if blood_id:
+        if blood_id == 0:
+            objects_list = objects_list
+        else:
+            objects_list = objects_list.filter(
+                profile__blood__pk=blood_id
             )
 
     context = {
