@@ -1,5 +1,4 @@
 $("#division").change(function () {
-alert("Clicked");
     var url = $("#application_form").attr("data-district-url");
     var divisionId = $(this).val();
     $.ajax({
@@ -15,7 +14,6 @@ alert("Clicked");
 });
 
 $("#district").change(function () {
-    alert("Clicked");
     var url = $("#application_form").attr("data-upazila-url");
     var districtId = $(this).val();
     $.ajax({
@@ -29,3 +27,23 @@ $("#district").change(function () {
     });
 
 });
+
+function callAjax(){
+   var divisionID = $("#division").val();
+   var districtID = $("#district").val();
+   var upazilaID = $("#upazila").val();
+   var bloodID = $("#blood").val();
+   var url = $("#application_form").attr("donor-url");
+    $.ajax({
+        url: url,
+        data: {
+        'division': divisionID,
+        'district': districtID,
+        'upazila': upazilaID,
+        'blood': bloodID,
+        },
+        success: function (data) {
+        $("#object_all").html(data);
+        }
+    });
+}
