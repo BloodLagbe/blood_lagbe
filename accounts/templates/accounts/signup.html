@@ -1,193 +1,199 @@
 {% extends 'base/base.html' %}
 {% load static %}
-    {% block extra_style %}
-    
-        <style>
-        .form-control {
-            height: 33px;
-            display: inline-block;
-            border: 1px #000 solid;
-            margin: 0;
-            width: 210px;
-            font-family: inherit;
-            font-size: inherit;
-            border-radius: 0;
-            line-height: inherit;
-        }
-        .nav-header {
-              position: fixed;
-              top: 0;
-              left: 0;
-              right: 0;
-              z-index: 10;
-              display: -webkit-box;
-              display: -ms-flexbox;
-              display: flex;
-              -webkit-box-align: center;
-              -ms-flex-align: center;
-              align-items: center;
-              height: 96px;
-              padding: 0 15px;
-              background: #ffffff;
-                  background-color: rgb(255, 255, 255);
-              border-bottom: 2px #eee solid;
-              -webkit-transition: left 0.25s;
-              -o-transition: left 0.25s;
-              transition: left 0.25s;
-          }
+{% block extra_style %}
 
-        </style>
-    {% endblock extra_style %}
+<style>
+  .form-control {
+    height: 33px;
+    display: inline-block;
+    border: 1px #000 solid;
+    margin: 0;
+    width: 210px;
+    font-family: inherit;
+    font-size: inherit;
+    border-radius: 0;
+    line-height: inherit;
+  }
 
-    {% block reg %}
+  .nav-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 10;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    height: 96px;
+    padding: 0 15px;
+    background: #ffffff;
+    background-color: rgb(255, 255, 255);
+    border-bottom: 2px #eee solid;
+    -webkit-transition: left 0.25s;
+    -o-transition: left 0.25s;
+    transition: left 0.25s;
+  }
+</style>
+{% endblock extra_style %}
+
+{% block reg %}
 <div class="nav-header bg-transparent shadow-none border-0">
-            <div class="nav-top w-100">
+  <div class="nav-top w-100">
 
-                <a href="/"><img class="ml-0" src="{% static 'images/logo/blood_lagbe_logo-v2.png' %}" alt="" style="width: 90px;"> </span> </a>
-                    <button class="nav-menu me-0 ms-2"></button>
-                </a>
-                <a href="#" class="mob-menu ms-auto me-2 chat-active-btn">
-                <i class="feather-message-circle text-grey-900 font-sm btn-round-md bg-greylight"></i>
-                </a>
-                <a href="default-video.html" class="mob-menu me-2">
-                <i class="feather-video text-grey-900 font-sm btn-round-md bg-greylight"></i>
-                </a>
-                <a href="#" class="me-2 menu-search-icon mob-menu">
-                <i class="feather-search text-grey-900 font-sm btn-round-md bg-greylight"></i>
-                </a>
-                <button class="nav-menu me-0 ms-2"></button>
-                <a href="#" class="header-btn d-none d-lg-block bg-dark fw-500 text-white font-xsss p-3 ms-auto w100 text-center lh-20 rounded-xl" data-bs-toggle="modal" data-bs-target="#Modallogin">Login</a>
-                <a href="#" class="header-btn d-none d-lg-block bg-current fw-500 text-white font-xsss p-3 ms-2 w100 text-center lh-20 rounded-xl" data-bs-toggle="modal" data-bs-target="#Modalregister">Register</a>
+    <a href="/"><img class="ml-0" src="{% static 'images/logo/blood_lagbe_logo-v2.png' %}" alt="" style="width: 90px;">
+      </span> </a>
+    <button class="nav-menu me-0 ms-2"></button>
+    </a>
+    <a href="#" class="mob-menu ms-auto me-2 chat-active-btn">
+      <i class="feather-message-circle text-grey-900 font-sm btn-round-md bg-greylight"></i>
+    </a>
+    <a href="default-video.html" class="mob-menu me-2">
+      <i class="feather-video text-grey-900 font-sm btn-round-md bg-greylight"></i>
+    </a>
+    <a href="#" class="me-2 menu-search-icon mob-menu">
+      <i class="feather-search text-grey-900 font-sm btn-round-md bg-greylight"></i>
+    </a>
+    <button class="nav-menu me-0 ms-2"></button>
+    <a href="#"
+      class="header-btn d-none d-lg-block bg-dark fw-500 text-white font-xsss p-3 ms-auto w100 text-center lh-20 rounded-xl"
+      data-bs-toggle="modal" data-bs-target="#Modallogin">Login</a>
+    <a href="#"
+      class="header-btn d-none d-lg-block bg-current fw-500 text-white font-xsss p-3 ms-2 w100 text-center lh-20 rounded-xl"
+      data-bs-toggle="modal" data-bs-target="#Modalregister">Register</a>
 
-            </div>
-            
-            
-        </div>
+  </div>
 
-    {% endblock reg %}
+
+</div>
+
+{% endblock reg %}
 
 {% block body %}
-<body class="color-theme-blue">
-<div class="container rounded bg-white mt-5 mb-5">
-<div class="row">
-        <div class="col-md-5" style="background-image: url(/static/images/login-bg-2.jpg); background-size: 100% 100%;">
-        </div>
-        <div class="col-md-7 border-right">
-            <div class="p-3">
-                    <h5 class="display1-size display2-md-size mb-4">Create Your Account</h5>
-                <form method="POST" id="update-profile-form">
-                    {% csrf_token %}
 
-                    <div class="picture-container text-centre">
-                        <input id="imageUpload" type="file" name="profile_photo" placeholder="Photo" required="" capture>
-<!--&lt;!&ndash;        &lt;!&ndash;            <span class="font-weight-bold">Amelly</span>&ndash;&gt;&ndash;&gt;-->
-<!--&lt;!&ndash;        &lt;!&ndash;            <span class="text-black-50">amelly12@bbb.com</span>&ndash;&gt;&ndash;&gt;-->
-                    </div>
-                    <div class="row mt-2">
-                        <div class="col-md-6">
-                            <label for="{{ registration_form.first_name.id_for_label }}">First Name</label>
-                            <br/>
-                            {{ registration_form.first_name}}
-                        </div>
-                        <div class="col-md-6">
-                            <label for="{{ registration_form.last_name.id_for_label }}">Last Name</label>
-                            <br/>
-                            {{ registration_form.last_name}}
-                        </div>
-                        <div class="col-md-6">
-                            <label for="{{ registration_form.phone.id_for_label }}">Phone Number*</label>
-                              <br/>
-                              {{ registration_form.phone }}
-                        </div>
-                        <div class="col-md-6">
-                            <label for="{{ registration_form.email.id_for_label }}">Email</label><br>
-                              {{ registration_form.email }}
-                              {% if registration_form.email.errors %}
-                                <small class="text-muted">
-                                  <span class="text-danger">{{ registration_form.email.errors }}</span>
-                                </small>
-                              {% endif %}
-                        </div>
-                    </div>
-                    <div class="row mt-3">
-                        {% csrf_token %}
-                        <div class="col-md-6">
-                            <label class="labels">Blood Group</label><br/>
-                            <select name="blood_group" id="exampleInputBlood" >
-                                <option value = "" selected>--------------</option>
-                                {% for x in blood %}
-                                <option value = "{{ x.id }}" >{{ x.name }}</option>
-                                {% endfor %}
-                            </select>
-                        </div>
-                        <div class="col-md-6">
-                            <label class="labels">Gender</label><br/>
-                            <select name="gender" id="exampleInputGender" >
-                                <option value = "" selected>-----------------</option>
-                                <option value = "M" >Male</option>
-                                <option value = "F" >Female</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="row mt-3">
-                        {% csrf_token %}
-                        <div class="col-md-6">
-                            <label class="labels">Last Donate Date</label>
-                            <input type="date" class="form-control" name="birthday" placeholder="" value="">
-                        </div>
-                        <div class="col-md-6">
-                            <label class="labels">Division</label>
-                            <select name="division" id="exampleInputDivision" >
-                                <option value = "" selected>--------------</option>
-                                {% for x in division %}
-                                <option value = "{{ x.div_name }}" >{{ x.div_name }}</option>
-                                {% endfor %}
-                            </select>
-                        </div>
-                        <div class="col-md-6">
-                            <label class="labels">District</label>
-                            <select name="district" id="exampleInputDistrict" >
-                                <option value = "" selected>--------------</option>
-                                {% for x in district %}
-                                <option value = "{{ x.dist_name }}" >{{ x.dist_name }}</option>
-                                {% endfor %}
-                            </select>
-                        </div>
-                        <div class="col-md-6">
-                            <label class="labels">Upazila</label>
-                            <select name="upazilla" id="exampleInputUpazila" >
-                                <option value = "" selected>--------------</option>
-                                {% for x in upazilla %}
-                                <option value = "{{ x.upazila_name }}" >{{ x.upazila_name }}</option>
-                                {% endfor %}
-                            </select>
-                        </div>
-                        <div class="col-md-6">
-                            <label for="{{ registration_form.password1.id_for_label }}">Password</label><br>
-                              {{ registration_form.password1 }}
-                              {% if registration_form.password1.errors %}
-                                  <small class="text-danger">{{ registration_form.password1.errors|first }}</small>
-                              {% endif %}
-                        </div>
-                        <div class="col-md-6">
-                            <label for="{{ registration_form.password2.id_for_label }}">Confirm Password</label><br>
-                              {{ registration_form.password2 }}
-                              {% if registration_form.password2.errors %}
-                                <small class="text-danger">{{ registration_form.password2.errors|first }}</small>
-                              {% endif %}
-                        </div>
-                    </div>
-                    <div class="mt-5 text-center">
-                        <button class="btn btn-primary btn-block btn-danger" type="submit">Submit</button>
-                    </div>
-                </form>
+<body class="color-theme-blue">
+  <div class="container rounded bg-white mt-5 mb-5">
+    <div class="row">
+      <div class="col-md-5" style="background-image: url(/static/images/login-bg-2.jpg); background-size: 100% 100%;">
+      </div>
+      <div class="col-md-7 border-right">
+        <div class="p-3">
+          <h5 class="display1-size display2-md-size mb-4">Create Your Account</h5>
+          <form method="POST" id="update-profile-form">
+            {% csrf_token %}
+
+            <div class="picture-container text-centre">
+              <input id="imageUpload" type="file" name="profile_photo" placeholder="Photo" required="" capture>
+              <!--&lt;!&ndash;        &lt;!&ndash;            <span class="font-weight-bold">Amelly</span>&ndash;&gt;&ndash;&gt;-->
+              <!--&lt;!&ndash;        &lt;!&ndash;            <span class="text-black-50">amelly12@bbb.com</span>&ndash;&gt;&ndash;&gt;-->
             </div>
+            <div class="row mt-2">
+              <div class="col-md-6">
+                <label for="{{ registration_form.first_name.id_for_label }}">First Name</label>
+                <br />
+                {{ registration_form.first_name}}
+              </div>
+              <div class="col-md-6">
+                <label for="{{ registration_form.last_name.id_for_label }}">Last Name</label>
+                <br />
+                {{ registration_form.last_name}}
+              </div>
+              <div class="col-md-6">
+                <label for="{{ registration_form.phone.id_for_label }}">Phone Number*</label>
+                <br />
+                {{ registration_form.phone }}
+              </div>
+              <div class="col-md-6">
+                <label for="{{ registration_form.email.id_for_label }}">Email</label><br>
+                {{ registration_form.email }}
+                {% if registration_form.email.errors %}
+                <small class="text-muted">
+                  <span class="text-danger">{{ registration_form.email.errors }}</span>
+                </small>
+                {% endif %}
+              </div>
+            </div>
+            <div class="row mt-3">
+              {% csrf_token %}
+              <div class="col-md-6">
+                <label class="labels">Blood Group</label><br />
+                <select name="blood_group" id="exampleInputBlood">
+                  <option value="" selected>--------------</option>
+                  {% for x in blood %}
+                  <option value="{{ x.id }}">{{ x.name }}</option>
+                  {% endfor %}
+                </select>
+              </div>
+              <div class="col-md-6">
+                <label class="labels">Gender</label><br />
+                <select name="gender" id="exampleInputGender">
+                  <option value="" selected>-----------------</option>
+                  <option value="M">Male</option>
+                  <option value="F">Female</option>
+                </select>
+              </div>
+            </div>
+            <div class="row mt-3">
+              {% csrf_token %}
+              <div class="col-md-6">
+                <label class="labels">Last Donate Date</label>
+                <input type="date" class="form-control" name="birthday" placeholder="" value="">
+              </div>
+              <div class="col-md-6">
+                <label class="labels">Division</label>
+                <select name="division" id="exampleInputDivision">
+                  <option value="" selected>--------------</option>
+                  {% for x in division %}
+                  <option value="{{ x.div_name }}">{{ x.div_name }}</option>
+                  {% endfor %}
+                </select>
+              </div>
+              <div class="col-md-6">
+                <label class="labels">District</label>
+                <select name="district" id="exampleInputDistrict">
+                  <option value="" selected>--------------</option>
+                  {% for x in district %}
+                  <option value="{{ x.dist_name }}">{{ x.dist_name }}</option>
+                  {% endfor %}
+                </select>
+              </div>
+              <div class="col-md-6">
+                <label class="labels">Upazila</label>
+                <select name="upazilla" id="exampleInputUpazila">
+                  <option value="" selected>--------------</option>
+                  {% for x in upazilla %}
+                  <option value="{{ x.upazila_name }}">{{ x.upazila_name }}</option>
+                  {% endfor %}
+                </select>
+              </div>
+              <div class="col-md-6">
+                <label for="{{ registration_form.password1.id_for_label }}">Password</label><br>
+                {{ registration_form.password1 }}
+                {% if registration_form.password1.errors %}
+                <small class="text-danger">{{ registration_form.password1.errors|first }}</small>
+                {% endif %}
+              </div>
+              <div class="col-md-6">
+                <label for="{{ registration_form.password2.id_for_label }}">Confirm Password</label><br>
+                {{ registration_form.password2 }}
+                {% if registration_form.password2.errors %}
+                <small class="text-danger">{{ registration_form.password2.errors|first }}</small>
+                {% endif %}
+              </div>
+            </div>
+            <div class="mt-5 text-center">
+              <button class="btn btn-primary btn-block btn-danger" type="submit">Submit</button>
+            </div>
+          </form>
         </div>
+      </div>
     </div>
-</div>
+  </div>
 </body>
 {% endblock %}
-    {% block footer %}
-    <!-- footer include -->
-    <!-- footer include -->
-    {% endblock footer %}
+{% block footer %}
+<!-- footer include -->
+<!-- footer include -->
+{% endblock footer %}
