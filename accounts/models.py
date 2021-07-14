@@ -128,7 +128,7 @@ class Profile(models.Model):
     )
     image = models.ImageField(
         _('Profile Picture'), blank=True, null=True,
-        upload_to=user_directory_path
+        upload_to='media/profile'
     )
     bio = models.TextField(
         _('Bio'), blank=True, null=True
@@ -144,7 +144,7 @@ class Profile(models.Model):
     )
 
     total_donate = models.IntegerField(
-        _('Total Blood Donate'), blank=True, null=True
+        _('Total Blood Donate'), blank=True, null=True, default='0'
     )
     gender = models.CharField(
         _('Gender'), max_length=1, blank=True, null=True,

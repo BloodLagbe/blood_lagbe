@@ -59,8 +59,7 @@ def signup_view(request):
             login(request, account)
             if profile_form.is_valid():
                 profile = request.user.profile
-                profile.image = request.POST.get("profile_photo")
-                profile.birthday = request.POST.get("birthday")
+                profile.last_donate = request.POST.get("birthday")
                 profile.gender = request.POST.get("gender")
                 blood = request.POST.get("blood_group")
                 blood = Blood.objects.get(id=blood)
@@ -68,6 +67,9 @@ def signup_view(request):
                 profile.division = request.POST.get("division")
                 profile.district = request.POST.get("district")
                 profile.thana = request.POST.get("upazilla")
+                image = request.POST.get('profile_photo')
+                print("image---", image)
+                profile.image
                 profile.save()
                 return render(request, 'pages/home.html')
             return render(request, 'pages/home.html')
@@ -84,3 +86,10 @@ def signup_view(request):
         }
     return render(request, 'accounts/registration.html', context)
 
+
+def profile_view(request, profile):
+    donor = User.objects.get(id=profile)
+    context = {
+        "donor": donor
+    }
+    return render(request, 'accounts/profile.html', context)

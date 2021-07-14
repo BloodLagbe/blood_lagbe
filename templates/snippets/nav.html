@@ -34,17 +34,17 @@
                     <input type="text" placeholder="Start typing to search.." class="bg-grey border-0 lh-32 pt-2 pb-2 ps-5 pe-3 font-xssss fw-500 rounded-xl w350 theme-dark-bg border-danger">
                 </div>
             </form>
-            <a href="/" class="p-2 text-center ms-3 menu-icon center-menu-icon"><i class="feather-home font-lg alert-light bg-greylight  btn-round-lg theme-dark-bg text-danger"></i></a>
-            <a href="default-storie.html" class="p-2 text-center ms-0 menu-icon center-menu-icon"><i class="feather-award font-lg bg-greylight btn-round-lg theme-dark-bg text-grey-500 "></i></a>
+<!--            <a href="/" class="p-2 text-center ms-3 menu-icon center-menu-icon"><i class="feather-home font-lg alert-light bg-greylight  btn-round-lg theme-dark-bg text-danger"></i></a>-->
+            <a href="{% url 'donor' %}" class="p-2 text-center ms-0 menu-icon center-menu-icon"><i class="feather-award font-lg bg-greylight btn-round-lg theme-dark-bg text-grey-500 "></i></a>
             <a href="default-video.html" class="p-2 text-center ms-0 menu-icon center-menu-icon"><i class="feather-activity font-lg bg-greylight btn-round-lg theme-dark-bg text-grey-500 "></i></a>
-<!--            <a href="default-group.html" class="p-2 text-center ms-0 menu-icon center-menu-icon"><i class="feather-user font-lg bg-greylight btn-round-lg theme-dark-bg text-grey-500 "></i></a>-->
-            <a href="shop-2.html" class="p-2 text-center ms-0 menu-icon center-menu-icon"><i class="feather-info font-lg bg-greylight btn-round-lg theme-dark-bg text-grey-500 "></i></a>
+            <a href="{% url 'donor' %}" class="p-2 text-center ms-0 menu-icon center-menu-icon"><i class="feather-user font-lg bg-greylight btn-round-lg theme-dark-bg text-grey-500 "></i></a>
+            <a href="{% url 'donor' %}" class="p-2 text-center ms-0 menu-icon center-menu-icon"><i class="feather-info font-lg bg-greylight btn-round-lg theme-dark-bg text-grey-500 "></i></a>
             {% csrf_token %}
             {% if user.is_authenticated %}
                 {% if user.profile.image %}
-                    <a href="shop-2.html" class="p-2 text-center ms-0 menu-icon center-menu-icon"><img src="/media/{{ user.profile.image }}" width="40" height="40" border="2px solid red;" class="rounded-circle"></a>
+                    <a href="{% url 'profile' user.id %}" class="p-2 text-center ms-0 menu-icon center-menu-icon"><img src="{{ user.profile.image.url }}" width="40" height="40" border="2px solid red;" class="rounded-circle"></a>
                 {% else %}
-                    <a href="shop-2.html" class="p-2 text-center ms-0 menu-icon center-menu-icon"><img src="/static/images/patient_icon_140481.png" width="40" height="40" border="2px solid red;" class="rounded-circle"></a>
+                    <a href="{% url 'profile' user.id %}" class="p-2 text-center ms-0 menu-icon center-menu-icon"><img src="/static/images/patient_icon_140481.png" width="40" height="40" border="2px solid red;" class="rounded-circle"></a>
                 {% endif %}
             {% endif %}
 
