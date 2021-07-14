@@ -10,47 +10,103 @@
 <body class="color-theme-blue">
 <div class="container">
     <div class="main-body" style="margin-top: 5%">
-          <div class="row ps-2 pe-1">
+      <div class="row">
+          <div class="col-xl-12">
+            <div class="card shadow-xss w-100 d-block d-flex border-0 p-4 mb-3">
+              <div class="card-body d-flex align-items-center p-0">
+                <h2 class="fw-700 mb-0 mt-0 font-md text-grey-900">Find Donors</h2>
+              </div>
+            </div>
+            </div>
+        <div class="col-md-12 col-sm-12 filter">
+                   <form method="POST" action="" class="fish-filter-form">
+                      {% csrf_token %}
+                       <div class="form-group">
+                          <div class="row">
+                            <div class="col-md-3">
+                                <label for="blood_group" style="font-weight: bold;">Blood Group</label>
+                                  <select name="blood_group" class="form-control">
+                                    <option value="" selected>----------</option>
+                                    {% for group in blood %}
+                                      <option value="{{ group.name }}">{{ group.name }}</option>
+                                    {% endfor %}
+                                  </select>
+                            </div>
 
-      {% for post in donor %}
+                            <div class="col-md-3">
+                               <label>Division</label>
+                                  <select name="division" class="form-control">
+                                    <option value="" selected disabled>------</option>
+                                    {% for divisions in division %}
+                                      <option value="{{ divisions.div_name }}">{{ divisions.div_name }}</option>
+                                    {% endfor %}
+                                  </select>
+                            </div>
+                            <div class="col-md-3">
+                               <label>District</label>
+                                  <select name="district" class="form-control">
+                                    <option value="" selected disabled>------</option>
+                                    {% for districts in district %}
+                                      <option value="{{ districts.id }}">{{ districts.dist_name }}</option>
+                                    {% endfor %}
+                                  </select>
+                            </div>
+                            <div class="col-md-3">
+                               <label>Upazila</label>
+                                  <select name="upazila" class="form-control">
+                                    <option value="" selected>------</option>
+                                    {% for upazilas in upazila %}
+                                      <option value="{{ upazilas.upazila_name }}">{{ upazilas.upazila_name }}</option>
+                                    {% endfor %}
+                                  </select>
+                            </div>
+                          </div>
+                      </div>
+                       <div class="col-md-3 bg-transparent-card w-400 border-0 ps-5 mb-3" style="margin-top: 1rem !important; padding-left: 35rem !important;">
+                          <button type="submit" class="btn btn-primary btn-danger"> Filter </button>
+                       </div>
+                    </form>
 
-      <div class="col-md-4 col-sm-6 pe-2 ps-2">
-        <div class="card d-block border-0 rounded-3 overflow-hidden mb-3" style="box-shadow: 0px 2px 15px #d9d9d9;">
-          <div class="card-body d-block w-100 p-4 text-center">
-            <figure class="avatar ms-auto me-auto mb-0 position-relative w90 z-index-1">
-              <img src="/media/{{ post.profile.image }} " alt="image"
-                class="float-right p-1 bg-white rounded-circle w-100"/>
-            </figure>
-            <div class="clearfix"></div>
-            <h4 class="fw-700 font-xss mt-3 mb-0">{{ post.first_name }} {{ post.last_name }}</h4>
-            <p class="fw-500 font-xssss text-grey-500 mt-0 mb-3">
-              {{ post.profile.thana }},{{ post.profile.district }} </p>
-            <ul class="d-flex align-items-center justify-content-center mt-1">
-              <li class="m-2">
-                <h4 class="fw-700 font-sm">
-                  {{ post.profile.blood.name }}
-                  <span class="font-xsssss fw-500 mt-1 text-grey-500 d-block">Group</span>
-                </h4>
-              </li>
-              <li class="m-2">
-                <h4 class="fw-700 font-sm">
-                  {{ post.profile.total_donate }}
-                  <span class="font-xsssss fw-500 mt-1 text-grey-500 d-block">total Donation</span>
-                </h4>
-              </li>
-              <li class="m-2">
-                <h4 class="fw-700 font-sm">
-                  {{ post.profile.last_donate }}
-                  <span class="font-xsssss fw-500 mt-1 text-grey-500 d-block">Last Donation date</span>
-                </h4>
-              </li>
-            </ul>
-            <a href="{% url 'profile' post.id %}"
-               class="mt-4 p-0 btn p-2 lh-24 w100 ms-1 ls-3 d-inline-block rounded-xl bg-current font-xsssss fw-700 ls-lg text-white">Contract</a>
+            </div>
+          {% for post in donor %}
+          <div class="col-md-4 col-sm-6 pe-2 ps-2">
+            <div class="card d-block border-0 rounded-3 overflow-hidden mb-3" style="box-shadow: 0px 2px 15px #d9d9d9;">
+              <div class="card-body d-block w-100 p-4 text-center">
+                <figure class="avatar ms-auto me-auto mb-0 position-relative w90 z-index-1">
+                  <img src="/media/{{ post.profile.image }} " alt="image"
+                    class="float-right p-1 bg-white rounded-circle w-100"/>
+                </figure>
+                <div class="clearfix"></div>
+                <h4 class="fw-700 font-xss mt-3 mb-0">{{ post.first_name }} {{ post.last_name }}</h4>
+                <p class="fw-500 font-xssss text-grey-500 mt-0 mb-3">
+                  {{ post.profile.thana }},{{ post.profile.district }} </p>
+                <ul class="d-flex align-items-center justify-content-center mt-1">
+                  <li class="m-2">
+                    <h4 class="fw-700 font-sm">
+                      {{ post.profile.blood.name }}
+                      <span class="font-xsssss fw-500 mt-1 text-grey-500 d-block">Group</span>
+                    </h4>
+                  </li>
+                  <li class="m-2">
+                    <h4 class="fw-700 font-sm">
+                      {{ post.profile.total_donate }}
+                      <span class="font-xsssss fw-500 mt-1 text-grey-500 d-block">total Donation</span>
+                    </h4>
+                  </li>
+                  <li class="m-2">
+                    <h4 class="fw-700 font-sm">
+                      {{ post.profile.last_donate }}
+                      <span class="font-xsssss fw-500 mt-1 text-grey-500 d-block">Last Donation date</span>
+                    </h4>
+                  </li>
+                </ul>
+                <a href="{% url 'profile' post.id %}"
+                   class="mt-4 p-0 btn p-2 lh-24 w100 ms-1 ls-3 d-inline-block rounded-xl bg-current font-xsssss fw-700 ls-lg text-white">Contract</a>
+              </div>
+            </div>
           </div>
-        </div>
-      </div>
-      {% endfor %}
+          {% endfor %}
+
     </div>
     </div>
     </div>
