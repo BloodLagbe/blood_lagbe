@@ -1,7 +1,7 @@
 
 from django.contrib import messages
 from django.shortcuts import render, redirect
-from accounts.forms import  LoginForm
+from accounts.forms import LoginForm
 from django.contrib.auth import login, authenticate, logout
 # Create your views here.
 from accounts.models import User, Profile
