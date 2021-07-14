@@ -1,11 +1,13 @@
 {% extends 'base/base.html' %}
 {% load static %}
+{% load crispy_forms_tags %}
 {% block body %}
 <head>
 <style>
 
 </style>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
 </head>
 <body class="color-theme-blue">
 <div class="container">
@@ -23,43 +25,23 @@
                       {% csrf_token %}
                        <div class="form-group">
                           <div class="row">
+                           <div class="col-md-3">
+                                {{ filter.blood|as_crispy_field }}
+
+                            </div>
                             <div class="col-md-3">
-                                <label for="blood_group" style="font-weight: bold;">Blood Group</label>
-                                  <select name="blood_group" class="form-control">
-                                    <option value="" selected>----------</option>
-                                    {% for group in blood %}
-                                      <option value="{{ group.name }}">{{ group.name }}</option>
-                                    {% endfor %}
-                                  </select>
+                                {{ filter.division|as_crispy_field }}
                             </div>
 
                             <div class="col-md-3">
-                               <label>Division</label>
-                                  <select name="division" class="form-control">
-                                    <option value="" selected disabled>------</option>
-                                    {% for divisions in division %}
-                                      <option value="{{ divisions.div_name }}">{{ divisions.div_name }}</option>
-                                    {% endfor %}
-                                  </select>
+                                {{ filter.district|as_crispy_field }}
+
                             </div>
                             <div class="col-md-3">
-                               <label>District</label>
-                                  <select name="district" class="form-control">
-                                    <option value="" selected disabled>------</option>
-                                    {% for districts in district %}
-                                      <option value="{{ districts.id }}">{{ districts.dist_name }}</option>
-                                    {% endfor %}
-                                  </select>
+                                {{ filter.upazila|as_crispy_field }}
+
                             </div>
-                            <div class="col-md-3">
-                               <label>Upazila</label>
-                                  <select name="upazila" class="form-control">
-                                    <option value="" selected>------</option>
-                                    {% for upazilas in upazila %}
-                                      <option value="{{ upazilas.upazila_name }}">{{ upazilas.upazila_name }}</option>
-                                    {% endfor %}
-                                  </select>
-                            </div>
+
                           </div>
                       </div>
                        <div class="col-md-3 bg-transparent-card w-400 border-0 ps-5 mb-3" style="margin-top: 1rem !important; padding-left: 35rem !important;">
@@ -113,3 +95,8 @@
 
 </body>
 {% endblock body %}
+
+{% block extra_scripts %}
+<script src="{% static 'js/load_data.js' %}"></script>
+
+{% endblock extra_scripts %}
