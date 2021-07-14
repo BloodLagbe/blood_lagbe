@@ -93,3 +93,6 @@ def profile_view(request, profile):
         "donor": donor
     }
     return render(request, 'accounts/profile.html', context)
+
+
+

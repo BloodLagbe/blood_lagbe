@@ -36,3 +36,7 @@ def donor(request):
         "donor": donor_list
     }
     return render(request, 'pages/donor.html', context)
+
+
+def contact(request):
+    return render(request, 'pages/contact.html')
