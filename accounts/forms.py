@@ -2,6 +2,7 @@ from django import forms
 from django.contrib.auth import get_user_model
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import authenticate
+from .models import Profile
 User = get_user_model()
 
 
@@ -36,3 +37,11 @@ class RegistrationForm(UserCreationForm):
                     return phone
             else:
                 raise forms.ValidationError('Invalid Phone number')
+
+
+class ProfileForm(forms.ModelForm):
+    class Meta:
+        model = Profile
+        fields = ('image', 'birthday', 'blood', 'gender',
+                  'division', 'district', 'thana')
+

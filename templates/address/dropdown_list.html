@@ -1,0 +1,8 @@
+<option value="">---------</option>
+{% for district in district %}
+<option value="{{ district.pk }}">{{ district.dist_name }}</option>
+{% endfor %}
+
+{% for upazila in upazila %}
+<option value="{{ upazila.pk }}">{{ upazila.upazila_name }}</option>
+{% endfor %}

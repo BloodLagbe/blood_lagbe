@@ -34,21 +34,35 @@ INTERNAL_IPS = [
 ]
 # Application definition
 
-INSTALLED_APPS = [
-    'address',
+DJANGO_APPS = [
     'jazzmin',
-    'blog',
-    'core',
-    'pages',
-    'accounts',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'widget_tweaks',
 ]
+
+PLUGIN_APPS = [
+    'widget_tweaks',
+    # 'django_extensions',
+    'import_export',
+    'crispy_forms',
+    'bootstrap_datepicker_plus',
+    'ckeditor',
+    'ckeditor_uploader',
+]
+
+PROJECT_APPS = [
+    'core.apps.CoreConfig',
+    'blog.apps.BlogappConfig',
+    'pages.apps.PagesConfig',
+    'address.apps.AddressConfig',
+    'accounts.apps.AccountsConfig',
+]
+
+INSTALLED_APPS = DJANGO_APPS + PLUGIN_APPS + PROJECT_APPS
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -144,6 +158,7 @@ AUTH_USER_MODEL = 'accounts.User'
 LOGIN_REDIRECT_URL = 'admin'
 LOGOUT_REDIRECT_URL = 'home'
 
+django_heroku.settings(locals())
 
 JAZZMIN_SETTINGS = {
     # title of the window (Will default to current_admin_site.site_title if absent or None)
@@ -277,4 +292,20 @@ JAZZMIN_SETTINGS = {
     # Add a language dropdown into the admin
 }
 
-django_heroku.settings(locals())
+CKEDITOR_UPLOAD_PATH = "uploads/"
+CKEDITOR_CONFIGS = {
+    'default': {
+        'toolbar': 'Custom',
+        'height': 250,
+        'width': 700,
+        'toolbar_Custom': [
+            ['Bold', 'Italic', 'Underline'],
+            [
+                'NumberedList', 'BulletedList', '-', 'Outdent', 'Indent', '-',
+                'JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock'
+            ],
+            ['Link', 'Unlink'],
+            ['RemoveFormat', 'Source']
+        ]
+    }
+}

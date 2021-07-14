@@ -1,0 +1,129 @@
+{% extends 'base/base.html' %}
+{% load static %}
+{% block body %}
+<head>
+<style>
+
+</style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+</head>
+<body class="color-theme-blue">
+<div class="container">
+    <div class="main-body">
+          <div class="row gutters-sm mt-2">
+            <div class="col-md-4 mb-3">
+              <div class="card">
+                <div class="card-body" style="box-shadow: 0px 2px 15px #d9d9d9;">
+                    {% csrf_token %}
+                  <div class="d-flex flex-column align-items-center text-center">
+<!--                    <img src="{{ user.author.image.url }}" alt="Admin" class="rounded-circle" width="150">-->
+                    <img src="/media/{{ donor.profile.image }}" alt="Admin" class="rounded-circle" width="150">
+                    <div class="mt-3">
+                      <h2 class="fw-900 font-xss mt-3 mb-0">{{ donor.first_name }} {{ donor.last_name }}</h2>
+<!--                      <h4>Sohan</h4>-->
+<!--                      <p class="text-secondary mb-1">{{ user.author.bio }}</p>-->
+                      <p class="fw-600 font-size-sm text-grey-600 mt-0 mb-3">{{ profile.bio }}</p>
+<!--                      <p class="text-muted font-size-sm">{{ user.author.location }}</p>-->
+                      <p class="text-muted font-size-sm"></p>
+                      <ul class="d-flex align-items-center justify-content-center mt-1">
+              <li class="m-2">
+                <h4 class="fw-700 font-sm">{{ donor.profile.blood }}
+                  <span class="font-xsssss fw-600 mt-1 text-grey-500 d-block">Group</span>
+                </h4>
+              </li>
+              <li class="m-2">
+                <h4 class="fw-700 font-sm">{{ donor.profile.total_donate }}
+                    <span class="font-xsssss fw-600 mt-1 text-grey-500 d-block">Total Donation</span>
+                </h4>
+              </li>
+              <li class="m-2">
+                <h4 class="fw-700 font-sm">{{ donor.profile.last_donate }}
+                  <span class="font-xsssss fw-600 mt-1 text-grey-500 d-block">Last Donation date</span>
+                </h4>
+              </li>
+            </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-8">
+              <div class="card mb-3">
+                <div class="card-body" style="box-shadow: 0px 2px 15px #d9d9d9;">
+                  <div class="row">
+                    <div class="col-sm-3">
+                      <b class="mb-0">Full Name</b>
+                    </div>
+                    <div class="col-sm-9">
+                      {{ donor.first_name }} {{ donor.last_name }}
+                    </div>
+                  </div>
+                  <hr>
+                  <div class="row">
+                    <div class="col-sm-3">
+                      <b class="mb-0">Email</b>
+                    </div>
+                    <div class="col-sm-9 ">
+                      {{ donor.email }}
+                    </div>
+                  </div>
+                  <hr>
+                  <div class="row">
+                    <div class="col-sm-3">
+                      <b class="mb-0">Phone</b>
+                    </div>
+                    <div class="col-sm-9">
+                      (+88) {{ donor.phone }}
+                    </div>
+                  </div>
+                  <hr>
+                  <div class="row">
+                    <div class="col-sm-3">
+                      <b class="mb-0">Birthday</b>
+                    </div>
+                    <div class="col-sm-9 ">
+                      {{ donor.profile.birthday }}
+                    </div>
+                  </div>
+                    <hr>
+                    <div class="row">
+                    <div class="col-sm-3">
+                      <b class="mb-0">Gender</b>
+                    </div>
+                    <div class="col-sm-9 ">
+                      {% if donor.profile.gender == 'M' %}
+                        Male
+                      {% elif donor.profile.gender == 'F' %}
+                        Female
+                       {% endif %}
+
+                    </div>
+                  </div>
+                  <hr>
+                  <div class="row">
+                    <div class="col-sm-3">
+                      <b class="mb-0">District</b>
+                    </div>
+                    <div class="col-sm-9 ">
+<!--                      {{ user.author.location }}-->
+                        {{ donor.profile.district }}
+                    </div>
+                  </div>
+                  <hr>
+                    <div class="row">
+                    <div class="col-sm-3">
+                      <b class="mb-0">Upazila</b>
+                    </div>
+                    <div class="col-sm-9 ">
+                        {{ donor.profile.thana }}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+
+</body>
+{% endblock body %}

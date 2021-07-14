@@ -5,12 +5,9 @@
     <div class="container d-flex justify-content-center justify-content-md-between">
 
       <div class="contact-info d-flex align-items-center">
-          {% csrf_token %}
-          {% if user.is_authenticated %}
 <!--            <a href="mailto:contact@example.com" class="text-white"><i class="feather-mail text-danger p-2"></i>Welcome {{user.first_name}} {{user.last_name}} </a>-->
-            <a href="mailto:contact@example.com" class="text-white"></i>Welcome {{user.first_name}} {{user.last_name}} </a>
-            <a href="mailto:contact@example.com" class="text-white"> <i class="feather-phone text-danger p-2"></i>{{user.phone}}</a>
-         {% endif %}
+            <a href="mailto:contact@example.com" class="text-white"><i class="feather-mail text-danger p-2"></i>info@bloodlagbe.com </a>
+        <a href="" class="text-white"> <i class="feather-phone text-danger p-2"></i>+8801990581913</a>
       </div>
       <div class="social-links d-none d-md-block">
         <a href="#" class="twitter text-danger"><i class="feather-twitter p-2"></i></a>
@@ -37,14 +34,21 @@
                     <input type="text" placeholder="Start typing to search.." class="bg-grey border-0 lh-32 pt-2 pb-2 ps-5 pe-3 font-xssss fw-500 rounded-xl w350 theme-dark-bg border-danger">
                 </div>
             </form>
-            <a href="/" class="p-2 text-center ms-3 menu-icon center-menu-icon"><i class="feather-home font-lg alert-light bg-greylight  btn-round-lg theme-dark-bg text-danger"></i></a>
-            <a href="default-storie.html" class="p-2 text-center ms-0 menu-icon center-menu-icon"><i class="feather-award font-lg bg-greylight btn-round-lg theme-dark-bg text-grey-500 "></i></a>
-            <a href="default-video.html" class="p-2 text-center ms-0 menu-icon center-menu-icon"><i class="feather-activity font-lg bg-greylight btn-round-lg theme-dark-bg text-grey-500 "></i></a>
-            <a href="default-group.html" class="p-2 text-center ms-0 menu-icon center-menu-icon"><i class="feather-user font-lg bg-greylight btn-round-lg theme-dark-bg text-grey-500 "></i></a>
-            <a href="shop-2.html" class="p-2 text-center ms-0 menu-icon center-menu-icon"><i class="feather-info font-lg bg-greylight btn-round-lg theme-dark-bg text-grey-500 "></i></a>
+<!--            <a href="/" class="p-2 text-center ms-3 menu-icon center-menu-icon"><i class="feather-home font-lg alert-light bg-greylight  btn-round-lg theme-dark-bg text-danger"></i></a>-->
+            <a href="{% url 'contact' %}" class="p-2 text-center ms-0 menu-icon center-menu-icon"><i class="feather-award font-lg bg-greylight btn-round-lg theme-dark-bg text-grey-500 "></i></a>
+            <a href="/blog" class="p-2 text-center ms-0 menu-icon center-menu-icon"><i class="feather-activity font-lg bg-greylight btn-round-lg theme-dark-bg text-grey-500 "></i></a>
+            <a href="{% url 'donor' %}" class="p-2 text-center ms-0 menu-icon center-menu-icon"><i class="feather-user font-lg bg-greylight btn-round-lg theme-dark-bg text-grey-500 "></i></a>
+            <a href="/blog" class="p-2 text-center ms-0 menu-icon center-menu-icon"><i class="feather-info font-lg bg-greylight btn-round-lg theme-dark-bg text-grey-500 "></i></a>
+            {% csrf_token %}
+            {% if user.is_authenticated %}
+                {% if user.profile.image %}
+                    <a href="{% url 'profile' user.id %}" class="p-2 text-center ms-0 menu-icon center-menu-icon"><img src="{{ user.profile.image.url }}" width="40" height="40" border="2px solid red;" class="rounded-circle"></a>
+                {% else %}
+                    <a href="{% url 'profile' user.id %}" class="p-2 text-center ms-0 menu-icon center-menu-icon"><img src="/static/images/patient_icon_140481.png" width="40" height="40" border="2px solid red;" class="rounded-circle"></a>
+                {% endif %}
+            {% endif %}
 
-
-            <a href="#" class="p-2 text-center ms-3 menu-icon chat-active-btn"><i class="feather-message-square font-xl text-current"></i></a>
+            <a href="{% url 'contact' %}" class="p-2 text-center ms-3 menu-icon chat-active-btn"><i class="feather-message-square font-xl text-current"></i></a>
                         <a href="#" class="p-2 text-center ms-auto menu-icon" id="dropdownMenu3" data-bs-toggle="dropdown" aria-expanded="false"><i class="feather-log-in font-xl text-current"></i></a>
             <div class="dropdown-menu dropdown-menu-end p-4 rounded-3 border-0 shadow-lg" aria-labelledby="dropdownMenu3">
                 {% include 'accounts/login.html' %}

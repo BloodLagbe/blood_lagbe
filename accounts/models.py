@@ -1,4 +1,5 @@
 from django.db import models
+from core.models import Blood
 from django.contrib.auth.models import (
     BaseUserManager, AbstractBaseUser
 )
@@ -115,19 +116,35 @@ def user_directory_path(instance, filename):
     return 'users_{0}/{1}'.format(instance.user.id, filename)
 
 
+def media_upload_path(instance, filename):
+    """Returns formatted upload to path"""
+    path = f'Users/{instance.user.id}/{filename}'
+    return path
+
+
 class Profile(models.Model):
     user = models.OneToOneField(
         User, on_delete=models.CASCADE, primary_key=True, unique=True
     )
     image = models.ImageField(
         _('Profile Picture'), blank=True, null=True,
-        upload_to=user_directory_path
+        upload_to='media/profile'
     )
     bio = models.TextField(
         _('Bio'), blank=True, null=True
     )
     birthday = models.DateField(
         _('Date of Birth'), blank=True, null=True
+    )
+    blood = models.ForeignKey(
+        Blood, on_delete=models.CASCADE, blank=True, null=True
+    )
+    last_donate = models.DateField(
+        _('Last Donate'), blank=True, null=True
+    )
+
+    total_donate = models.IntegerField(
+        _('Total Blood Donate'), blank=True, null=True, default='0'
     )
     gender = models.CharField(
         _('Gender'), max_length=1, blank=True, null=True,
