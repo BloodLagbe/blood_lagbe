@@ -3,7 +3,7 @@ from django.contrib import messages
 from django.shortcuts import render, redirect
 from accounts.forms import LoginForm
 from django.contrib.auth import login, authenticate, logout
-# Create your views here.
+from accounts.forms import SearchDoner
 from accounts.models import User, Profile
 from core.models import Blood
 from address.models import Division, District, Upazila
@@ -34,51 +34,9 @@ def index(request):
 
 def donor(request):
     donor_list = User.objects.filter(is_active=True).order_by('-id')
-    blood = Blood.objects.all()
-    division = Division.objects.all().order_by('-div_name')
-    district = District.objects.all().order_by('-dist_name')
-    upazila = Upazila.objects.all().order_by('-upazila_name')
-    if request.POST:
-        blood = request.POST.get("blood_group")
-        divisions = request.POST.get('division')
-        districts = request.POST.get('district')
-        upazilas = request.POST.get('upazila')
-        print("---------",blood, divisions,)
-        # if blood:
-        #     donor_list = Profile.objects.filter(blood__name=blood, is_active=True).order_by('-id')
-        if divisions:
-            donor_list = Profile.objects.filter(division__exact=divisions, is_active=True).order_by('-id')
-        if donor_list:
-            # pagination
-            page = request.GET.get('page', 1)
-            paginator = Paginator(donor_list, 6)
-
-            try:
-                donor_list = paginator.page(page)
-            except PageNotAnInteger:
-                donor_list = paginator.page(1)
-            except EmptyPage:
-                donor_list = paginator.page(paginator.num_pages)
-            context = {
-                "donor": donor_list, "district": district,
-                "blood": blood, "upazila": upazila,
-                "division": division,
-            }
-            print("----step 1-----")
-            return render(request, 'pages/donor.html', context)
-        else:
-            print("----step 2-----")
-            context = {
-                "donor": donor_list, "district": district,
-                "blood": blood, "upazila": upazila,
-                "division": division,
-            }
-            return render(request, 'pages/donor.html', context)
-
     context = {
-        "donor": donor_list, "district": district,
-        "blood": blood, "upazila": upazila,
-        "division": division,
+        "donor": donor_list,
+        "filter": SearchDoner,
     }
     print("----step 3-----")
     return render(request, 'pages/donor.html', context)
