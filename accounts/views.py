@@ -1,10 +1,10 @@
 from django.contrib import messages
 from django.shortcuts import render, redirect
-from .forms import RegistrationForm, LoginForm, ProfileForm
+from django.contrib.auth.decorators import login_required
 from django.contrib.auth import login, authenticate, logout
 from .models import *
 from address.models import Division, District, Upazila
-
+from .forms.forms import RegistrationForm, LoginForm, ProfileForm, UserUpdateForm, ProfileUpdateForm
 # Create your views here.
 
 
@@ -87,15 +87,49 @@ def signup_view(request):
     return render(request, 'accounts/registration.html', context)
 
 
-def profile_view(request, profile):
+def donor_profile_view(request, profile):
     donor = User.objects.get(id=profile)
-    blood=donor.profile.blood
-    # related_donor = Profile.objects.filter(is_active=True).order_by('-blood')
+    blood = donor.profile.blood
     related_donor = Profile.objects.filter(is_active=True, blood=blood)[0:6]
     context = {
         "donor": donor, "related_donor": related_donor
     }
     return render(request, 'accounts/profile.html', context)
+
+
+def user_profile_view(request):
+    donor = request.user
+    blood = donor.profile.blood
+    related_donor = Profile.objects.filter(is_active=True, blood=blood)[0:6]
+    context = {
+        "donor": donor, "related_donor": related_donor
+    }
+    return render(request, 'accounts/user_profile.html', context)
+
+@login_required
+def profile_update_view(request):
+    donor = request.user
+    if request.method == 'POST':
+        u_form = UserUpdateForm(request.POST, instance=request.user)
+        p_form = ProfileUpdateForm(request.POST,
+                                   request.FILES,
+                                   instance=request.user.profile)
+        if u_form.is_valid() and p_form.is_valid():
+            u_form.save()
+            p_form.save()
+            messages.success(request, f'Your account has been updated!')
+            return redirect('user-profile')
+
+    else:
+        u_form = UserUpdateForm(instance=request.user)
+        p_form = ProfileUpdateForm(instance=request.user.profile)
+
+    context = {
+        'u_form': u_form,
+        'p_form': p_form,
+        "donor": donor
+    }
+    return render(request, 'accounts/profile_update.html', context)
 
 
 

@@ -79,7 +79,7 @@
       <div class="col-md-5" style="background-image: url(/static/images/login-bg-2.jpg); background-size: 100% 100%;">
       </div>
       <div class="col-md-7 border-right">
-        <div class="p-3">
+        <div class="p-3" style="box-shadow: 0px 2px 15px #d9d9d9;">
           <h5 class="display1-size display2-md-size mb-4">Create Your Account</h5>
           <form method="POST" id="update-profile-form">
             {% csrf_token %}
@@ -119,7 +119,7 @@
               {% csrf_token %}
               <div class="col-md-6">
                 <label class="labels">Blood Group</label><br />
-                <select name="blood_group" id="exampleInputBlood">
+                <select name="blood_group" id="exampleInputBlood" style="width: 205px; height: 35px;">
                   <option value="" selected>--------------</option>
                   {% for x in blood %}
                   <option value="{{ x.id }}">{{ x.name }}</option>
@@ -128,7 +128,7 @@
               </div>
               <div class="col-md-6">
                 <label class="labels">Gender</label><br />
-                <select name="gender" id="exampleInputGender">
+                <select name="gender" id="exampleInputGender" style="width: 205px; height: 35px;">
                   <option value="" selected>-----------------</option>
                   <option value="M">Male</option>
                   <option value="F">Female</option>
@@ -143,7 +143,7 @@
               </div>
               <div class="col-md-6">
                 <label class="labels">Division</label>
-                <select name="division" id="exampleInputDivision">
+                <select name="division" id="exampleInputDivision" style="width: 205px; height: 35px;">
                   <option value="" selected>--------------</option>
                   {% for x in division %}
                   <option value="{{ x.div_name }}">{{ x.div_name }}</option>
@@ -152,7 +152,7 @@
               </div>
               <div class="col-md-6">
                 <label class="labels">District</label>
-                <select name="district" id="exampleInputDistrict">
+                <select name="district" id="exampleInputDistrict" style="width: 205px; height: 35px;">
                   <option value="" selected>--------------</option>
                   {% for x in district %}
                   <option value="{{ x.dist_name }}">{{ x.dist_name }}</option>
@@ -161,7 +161,7 @@
               </div>
               <div class="col-md-6">
                 <label class="labels">Upazila</label>
-                <select name="upazilla" id="exampleInputUpazila">
+                <select name="upazilla" id="exampleInputUpazila" style="width: 205px; height: 35px;">
                   <option value="" selected>--------------</option>
                   {% for x in upazilla %}
                   <option value="{{ x.upazila_name }}">{{ x.upazila_name }}</option>

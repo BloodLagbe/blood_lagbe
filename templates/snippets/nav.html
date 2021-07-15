@@ -42,9 +42,9 @@
             {% csrf_token %}
             {% if user.is_authenticated %}
                 {% if user.profile.image %}
-                    <a href="{% url 'profile' user.id %}" class="p-2 text-center ms-0 menu-icon center-menu-icon"><img src="{{ user.profile.image.url }}" width="40" height="40" border="2px solid red;" class="rounded-circle"></a>
+                    <a href="{% url 'user-profile' %}" class="p-2 text-center ms-0 menu-icon center-menu-icon"><img src="{{ user.profile.image.url }}" width="40" height="40" border="2px solid red;" class="rounded-circle"></a>
                 {% else %}
-                    <a href="{% url 'profile' user.id %}" class="p-2 text-center ms-0 menu-icon center-menu-icon"><img src="/static/images/patient_icon_140481.png" width="40" height="40" border="2px solid red;" class="rounded-circle"></a>
+                    <a href="{% url 'user-profile'%}" class="p-2 text-center ms-0 menu-icon center-menu-icon"><img src="/static/images/patient_icon_140481.png" width="40" height="40" border="2px solid red;" class="rounded-circle"></a>
                 {% endif %}
             {% endif %}
 
