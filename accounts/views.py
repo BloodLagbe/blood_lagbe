@@ -89,8 +89,11 @@ def signup_view(request):
 
 def profile_view(request, profile):
     donor = User.objects.get(id=profile)
+    blood=donor.profile.blood
+    # related_donor = Profile.objects.filter(is_active=True).order_by('-blood')
+    related_donor = Profile.objects.filter(is_active=True, blood=blood)[0:6]
     context = {
-        "donor": donor
+        "donor": donor, "related_donor": related_donor
     }
     return render(request, 'accounts/profile.html', context)
 

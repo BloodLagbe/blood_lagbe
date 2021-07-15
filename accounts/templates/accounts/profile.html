@@ -17,7 +17,7 @@
                     {% csrf_token %}
                   <div class="d-flex flex-column align-items-center text-center">
 <!--                    <img src="{{ user.author.image.url }}" alt="Admin" class="rounded-circle" width="150">-->
-                    <img src="/media/{{ donor.profile.image }}" alt="Admin" class="rounded-circle" width="150">
+                    <img src="/{{ donor.profile.image }}" alt="Admin" class="rounded-circle" width="150">
                     <div class="mt-3">
                       <h2 class="fw-900 font-xss mt-3 mb-0">{{ donor.first_name }} {{ donor.last_name }}</h2>
 <!--                      <h4>Sohan</h4>-->
@@ -115,15 +115,69 @@
                       <b class="mb-0">Upazila</b>
                     </div>
                     <div class="col-sm-9 ">
-                        {{ donor.profile.thana }}
+                        {{ donor.profile.upazila }}
                     </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
+          <div class="col-xl-12">
+    <div class="card shadow-xss w-100 d-block d-flex border-0 p-4 mb-3">
+      <div class="card-body d-flex align-items-center p-0">
+        <h2 class="fw-700 mb-0 mt-0 font-md text-grey-900">Related Donors</h2>
+      </div>
     </div>
+    {% csrf_token %}
+    <div class="row ps-2 pe-1">
+
+      {% for post in related_donor %}
+
+      <div class="col-md-4 col-sm-6 pe-2 ps-2">
+        <div class="card d-block border-0 shadow-xss rounded-3 overflow-hidden mb-3">
+          <div class="card-body d-block w-100 p-4 text-center">
+            <figure class="avatar ms-auto me-auto mb-0 position-relative w90 z-index-1">
+              <img src="/{{ post.image }} " alt="image"
+                class="float-right p-1 bg-white rounded-circle w-100"/>
+            </figure>
+            <div class="clearfix"></div>
+            <h4 class="fw-700 font-xss mt-3 mb-0">{{ post.user.first_name }} {{ post.user.last_name }}</h4>
+            <p class="fw-500 font-xssss text-grey-500 mt-0 mb-3">
+              {{ post.upazila }},{{ post.district }} </p>
+            <ul class="d-flex align-items-center justify-content-center mt-1">
+              <li class="m-2">
+                <h4 class="fw-700 font-sm">
+                  {{ post.blood.name }}
+                  <span class="font-xsssss fw-500 mt-1 text-grey-500 d-block">Group</span>
+                </h4>
+              </li>
+              <li class="m-2">
+                <h4 class="fw-700 font-sm">
+                  {{ post.total_donate }}
+                  <span class="font-xsssss fw-500 mt-1 text-grey-500 d-block">total Donation</span>
+                </h4>
+              </li>
+              <li class="m-2">
+                <h4 class="fw-700 font-sm">
+                  {{ post.last_donate }}
+                  <span class="font-xsssss fw-500 mt-1 text-grey-500 d-block">Last Donation date</span>
+                </h4>
+              </li>
+            </ul>
+            <a href="{% url 'profile' post.user.id %}"
+               class="mt-4 p-0 btn p-2 lh-24 w100 ms-1 ls-3 d-inline-block rounded-xl bg-current font-xsssss fw-700 ls-lg text-white">Contract</a>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+
+    <div class=" bg-transparent-card w-100 border-0 ps-5 mb-3">
+       <a class="btn btn-primary btn-danger"  href="{% url 'donor' %}" >More Donors</a>
+      </div>
+  </div>
+    </div>
+</div>
 
 </body>
 {% endblock body %}

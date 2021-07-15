@@ -12,11 +12,9 @@
             placeholder="Search here."
           />
         </div>
-        <a
-          href="#"
-          class="btn-round-md ms-2 bg-greylight theme-dark-bg rounded-3"
-          ><i class="feather-filter font-xss text-grey-500"></i
-        ></a>
+        <a href="{% url 'donor' %}"
+          class="btn-round-md ms-2 bg-greylight theme-dark-bg rounded-3">
+          <i class="feather-filter font-xss text-grey-500"></i></a>
       </div>
     </div>
     {% csrf_token %}
@@ -34,7 +32,7 @@
             <div class="clearfix"></div>
             <h4 class="fw-700 font-xss mt-3 mb-0">{{ post.user.first_name }} {{ post.user.last_name }}</h4>
             <p class="fw-500 font-xssss text-grey-500 mt-0 mb-3">
-              {{ post.thana }},{{ post.district }} </p>
+              {{ post.upazila }},{{ post.district }} </p>
             <ul class="d-flex align-items-center justify-content-center mt-1">
               <li class="m-2">
                 <h4 class="fw-700 font-sm">
