@@ -22,8 +22,6 @@ from django.conf.urls import url
 from django.contrib.auth import views as auth_views
 from django.urls import path, include
 from blog.views import postView
-#from django.conf.urls.i18n import i18n_patterns
-#from django.conf.urls import url
 
 
 urlpatterns = [
@@ -52,9 +50,6 @@ if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL,
                           document_root=settings.MEDIA_ROOT)
 
-
-#urlpatterns += [url(r'^i18n/', include('django.conf.urls.i18n')),]
-#urlpatterns += i18n_patterns(url(r'^admin/', admin.site.urls))
 # admin site title change
 admin.sites.AdminSite.site_header = "Blood Lagbe"
 admin.sites.AdminSite.site_title = "Blood Lagbe"

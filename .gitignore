@@ -48,6 +48,9 @@ coverage.xml
 .hypothesis/
 .pytest_cache/
 
+# Media File
+media/
+
 # Translations
 *.mo
 *.pot

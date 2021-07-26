@@ -42,7 +42,7 @@ class RegistrationForm(UserCreationForm):
 class ProfileForm(forms.ModelForm):
     class Meta:
         model = Profile
-        fields = ('image', 'birthday', 'blood', 'gender',
+        fields = ('birthday', 'blood', 'gender',
                   'division', 'district', 'upazila')
 
 

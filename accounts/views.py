@@ -49,31 +49,40 @@ def signup_view(request):
         form = RegistrationForm(request.POST)
         profile_form = ProfileForm(request.POST)
         if form.is_valid():
+            print("1st step loading----")
             name = form.cleaned_data.get('name')
             phone = form.cleaned_data.get('phone')
             email = form.cleaned_data.get('email')
             raw_password = form.cleaned_data.get('password1')
+            print("1st step loading 2----")
             form.save(commit=True)
+            print("1st step loading 3----")
             account = authenticate(
                 name=name, phone=phone, email=email, password=raw_password)
+            print("1st step loading 2----")
             login(request, account)
-            if profile_form.is_valid():
-                profile = request.user.profile
-                profile.last_donate = request.POST.get("birthday")
-                profile.gender = request.POST.get("gender")
-                blood = request.POST.get("blood_group")
-                blood = Blood.objects.get(id=blood)
-                profile.blood = blood
-                profile.division = request.POST.get("division")
-                profile.district = request.POST.get("district")
-                profile.thana = request.POST.get("upazilla")
-                image = request.POST.get('profile_photo')
-                print("image---", image)
-                profile.image
-                profile.save()
-                return render(request, 'pages/home.html')
+            print("1st step done----")
+            profile = request.user.profile
+            print("profile-----", profile)
+            profile.birthday = request.POST.get("birthday")
+            print("profile-----", profile)
+            profile.gender = request.POST.get("gender")
+            blood = request.POST.get("blood_group")
+            blood = Blood.objects.get(id=blood)
+            division = request.POST.get("division")
+            district = request.POST.get("district")
+            thana = request.POST.get("upazilla")
+            division = Division.objects.get(div_name=division)
+            district = District.objects.get(dist_name=district)
+            upazila = Upazila.objects.get(upazila_name=thana)
+            profile.blood = blood
+            profile.division = division
+            profile.district = district
+            profile.upazila = upazila
+            profile.save()
             return render(request, 'pages/home.html')
         else:
+            print("4th step done----")
             context = {
                 "registration_form": form, "blood": blood, "division": division,
                 "district": district, "upazilla": upazilla,
